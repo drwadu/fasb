@@ -1,4 +1,0 @@
-[ ] webpage with gifs for use cases; with pic next to it, e.g., 8-queens, grid (for perplexity)
-[ ] technical report
-[ ] colored output; e.g., #?? with color becomes darker whenever effect bigger current biggest effect
-[ ] add composition with .
