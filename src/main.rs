@@ -111,6 +111,7 @@ fn main() -> Result<()> {
                 let mut src = tmp.trim().split(" | ");
                 let pred = match src.next() {
                     Some("#f!0") => |x: &Vec<String>| !x.is_empty(),
+                    Some("#f<") => |x: &Vec<String>| !x.is_empty(),
                     Some(expr) => {
                         if expr.contains("==") {
                             let mut xs = expr.split("==");
