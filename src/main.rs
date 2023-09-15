@@ -21,8 +21,8 @@ fn main() -> Result<()> {
     let arg = match input.next() {
         Some(s) => s,
         _ => {
-            println!("Expected input.");
-            return Ok(());
+            println!("error: expected input logic program");
+            std::process::exit(-1)
         }
     };
 
@@ -75,8 +75,8 @@ fn main() -> Result<()> {
     let arg = match input.next() {
         Some(s) => s,
         _ => {
-            println!("Expected input.");
-            return Ok(());
+            println!("error: expected input logic program");
+            std::process::exit(-1)
         }
     };
 
@@ -104,49 +104,30 @@ fn main() -> Result<()> {
         .collect::<Vec<_>>();
 
     for (i, line) in script.lines().enumerate() {
-        println!("{line}");
+        println!("{PROMPT}{line}");
         match line.starts_with("\\") {
             true => {
                 let tmp = line.replace("\\", "");
                 let mut src = tmp.trim().split(" | ");
-                let pred = match src.next() {
-                    Some("#f!0") => |x: &Vec<String>| !x.is_empty(),
-                    Some("#f<") => |x: &Vec<String>| !x.is_empty(),
-                    Some(expr) => {
-                        if expr.contains("==") {
-                            let mut xs = expr.split("==");
-                            match xs.next() {
-                                Some("#f!0") => {
-                                    match xs.next().and_then(|n| n.parse::<usize>().ok()) {
-                                        Some(n) => unimplemented!(),
-                                        _ => unimplemented!(),
-                                    }
-                                }
-                                _ => {
-                                    println!(
-                                        "invalid syntax line {:?}: unsupported condition",
-                                        i + 1
-                                    );
-                                    std::process::exit(-1)
-                                }
-                            }
-                        } else {
-                            println!("invalid syntax line {:?}: unsupported condition", i + 1);
-                            std::process::exit(-1)
-                        }
-                    }
+                let mut pred = match src.next() {
+                    Some(expr) => expr.split(" "),
                     _ => {
-                        println!(
-                            "invalid syntax line {:?}: provide loop breaking condition",
-                            i + 1
-                        );
+                        println!("error line {:?}: specify condition", i + 1);
                         std::process::exit(-1)
                     }
                 };
-                let loopp = match src.next() {
-                    Some(expr) => {
-                        while pred(&facets) {
-                            for cmd in expr.split(".") {
+                let inst = match src.next() {
+                    Some(expr) => expr.split(".").collect::<Vec<_>>(),
+                    _ => {
+                        println!("error line {:?}: specify instructions in loop", i + 1);
+                        std::process::exit(-1)
+                    }
+                };
+
+                match pred.next() {
+                    Some("_") => {
+                        while !facets.is_empty() {
+                            for cmd in &inst {
                                 mode.command(
                                     cmd.trim().to_owned(),
                                     &mut nav,
@@ -156,59 +137,141 @@ fn main() -> Result<()> {
                             }
                         }
                     }
+                    Some("!=") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() != x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() != x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        _ => {
+                            println!("unknown lhs specified in line {}", i + 1);
+                            std::process::exit(-1)
+                        }
+                    },
+                    Some(">") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() > x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() > x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        _ => {
+                            println!("unknown lhs specified in line {}", i + 1);
+                            std::process::exit(-1)
+                        }
+                    },
+                    Some(">=") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() >= x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() >= x {
+                                    for cmd in &inst {
+                                        mode.command(
+                                            cmd.trim().to_owned(),
+                                            &mut nav,
+                                            &mut facets,
+                                            &mut route,
+                                        )?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("unknown rhs specified in line {}", i + 1);
+                                std::process::exit(-1)
+                            }
+                        },
+                        _ => {
+                            println!("unknown lhs specified in line {}", i + 1);
+                            std::process::exit(-1)
+                        }
+                    },
                     _ => {
                         println!("invalid syntax line {:?}: provide loop", i + 1);
                         std::process::exit(-1)
                     }
                 };
             }
-            _ => mode.command(line.replace("_", " "), &mut nav, &mut facets, &mut route)?,
+            _ => mode.command(line.to_owned(), &mut nav, &mut facets, &mut route)?,
         };
     }
-    std::process::exit(0);
-
-    //let pre = script
-    //    .lines()
-    //    .filter(|l| !l.is_empty())
-    //    .take_while(|s| *s != "{")
-    //    .map(|l| l.chars().take_while(|c| *c != '-').collect::<String>())
-    //    .collect::<Vec<_>>();
-    //let src = script
-    //    .lines()
-    //    .filter(|l| !l.is_empty())
-    //    .skip_while(|s| *s != "{")
-    //    .skip(1)
-    //    .take_while(|s| *s != "}")
-    //    .map(|l| l.chars().take_while(|c| *c != '-').collect::<String>())
-    //    .collect::<Vec<_>>();
-    //let end = script
-    //    .lines()
-    //    .filter(|l| !l.is_empty())
-    //    .skip_while(|s| *s != "}")
-    //    .skip(1)
-    //    .map(|l| l.chars().take_while(|c| *c != '-').collect::<String>())
-    //    .collect::<Vec<_>>();
-
-    //for line in &pre {
-    //    println!("{PROMPT} {}", &line);
-    //    mode.command(line.replace("_", " "), &mut nav, &mut facets, &mut route)?;
-    //    if facets.is_empty() {
-    //        break;
-    //    }
-    //}
-    //'runtime: loop {
-    //    for line in &src {
-    //        println!("{PROMPT} {}", &line);
-    //        if facets.is_empty() {
-    //            break 'runtime;
-    //        }
-    //    }
-    //}
-    //assert!(facets.is_empty());
-    //for line in &end {
-    //    println!("{PROMPT} {}", &line);
-    //    mode.command(line.replace("_", " "), &mut nav, &mut facets, &mut route)?;
-    //}
 
     return Ok(());
 }
