@@ -32,15 +32,15 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
     ) -> Result<()> {
-        let mut expr = expr.split(" ");
-        match expr.next() {
+        let mut split_expr = expr.as_str().split(" ");
+        match split_expr.next() {
             Some(ACTIVATE_FACETS) => {
                 #[cfg(feature = "verbose")]
                 println!("% activation started");
                 #[cfg(feature = "verbose")]
                 let start = Instant::now();
 
-                expr.for_each(|f| {
+                split_expr.for_each(|f| {
                     route.push(f.to_owned());
                 });
                 *facets = nav
@@ -60,8 +60,11 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 let start = Instant::now();
 
                 let n = nav.enumerate_solutions(
-                    expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
-                    route.iter().map(|s| s.as_ref()).chain(expr),
+                    split_expr
+                        .next()
+                        .and_then(|n| n.parse::<usize>().ok())
+                        .take(),
+                    route.iter().map(|s| s.as_ref()).chain(split_expr),
                 )?;
                 println!("found {:?}", n);
 
@@ -69,7 +72,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 println!("% enumeration elapsed: {:?}", start.elapsed());
             }
             Some(SHOW_FACETS) => {
-                if let Some(re) = expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
                         .iter()
                         .filter(|f| re.is_match(f))
@@ -90,7 +93,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 } as f32;
                 let mut weight = Weight::FacetCounting;
 
-                if let Some(re) = expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     for f in facets.iter().filter(|f| re.is_match(f)) {
                         route.push(f.to_owned());
                         count(&mut weight, nav, route.iter())
@@ -120,8 +123,11 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             }
             Some(ANSWER_SET_COUNT) => {
                 let n = nav.enumerate_solutions_quietly(
-                    expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
-                    route.iter().map(|s| s.as_ref()).chain(expr),
+                    split_expr
+                        .next()
+                        .and_then(|n| n.parse::<usize>().ok())
+                        .take(),
+                    route.iter().map(|s| s.as_ref()).chain(split_expr),
                 )?;
                 println!("{:?}", n)
             }
@@ -133,7 +139,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
                 } as f32;
 
-                if let Some(re) = expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     for f in facets.iter().filter(|f| re.is_match(f)) {
                         route.push(f.to_owned());
                         count(&mut weight, nav, route.iter())
@@ -183,36 +189,52 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .map(|f| lex::repr(*f))
                     .collect();
             }
-            Some(CHANGE_MODE) => match expr.next() {
+            Some(CHANGE_MODE) => match split_expr.next() {
                 Some("min#f") => {
                     *self = Mode::MinWeightedFacetCounting(
-                        expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
+                        split_expr
+                            .next()
+                            .and_then(|n| n.parse::<usize>().ok())
+                            .take(),
                     )
                 }
                 Some("max#f") => {
                     *self = Mode::MaxWeightedFacetCounting(
-                        expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
+                        split_expr
+                            .next()
+                            .and_then(|n| n.parse::<usize>().ok())
+                            .take(),
                     )
                 }
                 Some("min#a") => {
                     *self = Mode::MinWeightedAnswerSetCounting(
-                        expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
+                        split_expr
+                            .next()
+                            .and_then(|n| n.parse::<usize>().ok())
+                            .take(),
                     )
                 }
                 Some("max#a") => {
                     *self = Mode::MaxWeightedAnswerSetCounting(
-                        expr.next().and_then(|n| n.parse::<usize>().ok()).take(),
+                        split_expr
+                            .next()
+                            .and_then(|n| n.parse::<usize>().ok())
+                            .take(),
                     )
                 }
                 Some("go") => {
-                    *self =
-                        Mode::GoalOriented(expr.next().and_then(|n| n.parse::<usize>().ok()).take())
+                    *self = Mode::GoalOriented(
+                        split_expr
+                            .next()
+                            .and_then(|n| n.parse::<usize>().ok())
+                            .take(),
+                    )
                 }
-                _ => println!("specify mode among {{{{min,max}}#{{f,a,s}}, go}}"),
+                _ => println!("error: specify mode among {{{{min,max}}#{{f,a,s}}, go}}"),
             },
 
             Some(PROPOSE_STEP) => {
-                let fs = if let Some(re) = expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
                         .iter()
                         .filter(|f| re.is_match(f))
@@ -228,7 +250,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 }
             }
             Some(TAKE_STEP) => {
-                let fs = if let Some(re) = expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
                         .iter()
                         .filter(|f| re.is_match(f))
@@ -286,6 +308,134 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             }
             Some(QUIT) => std::process::exit(0),
             Some("man") => crate::config::manual(),
+            Some("\\") => {
+                let tmp = expr.replace("\\", "");
+                let mut src = tmp.trim().split(" | ");
+                let mut pred = match src.next() {
+                    Some(expr) => expr.split(" "),
+                    _ => {
+                        println!("specify condition");
+                        return Ok(());
+                    }
+                };
+                let inst = match src.next() {
+                    Some(expr) => expr.split(".").collect::<Vec<_>>(),
+                    _ => {
+                        println!("specify instructions in loop");
+                        return Ok(());
+                    }
+                };
+
+                match pred.next() {
+                    Some("_") => {
+                        while !facets.is_empty() {
+                            for cmd in &inst {
+                                self.command(cmd.trim().to_owned(), nav, facets, route)?
+                            }
+                        }
+                    }
+                    Some("!=") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() != x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() != x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        _ => {
+                            println!("error: unknown lhs");
+                            return Ok(());
+                        }
+                    },
+                    Some(">") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() > x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() > x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        _ => {
+                            println!("error: unknown lhs");
+                            return Ok(());
+                        }
+                    },
+                    Some(">=") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() >= x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() >= x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        _ => {
+                            println!("error: unknown lhs");
+                            return Ok(());
+                        }
+                    },
+                    _ => {
+                        println!("error: provide instructions");
+                        return Ok(());
+                    }
+                };
+            }
             _ => println!("noop [unknown command]"),
         }
 
