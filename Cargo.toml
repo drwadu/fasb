@@ -1,0 +1,13 @@
+[package]
+name = "fasb"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rustyline = "11.0.0"
+regex = "1"
+savan = "0.1.0"
+
+[features]
+verbose = []
+interpreter = []

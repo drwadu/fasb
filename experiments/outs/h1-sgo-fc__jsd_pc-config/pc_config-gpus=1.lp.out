@@ -1,0 +1,114 @@
+fasb v0.1.0
+42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
+' max#f
+#?
+1514
+\ #f!0 | $$.@
+% performing step started
+0.4729 798 cn(158,74)
+% performing step elapsed: 161.094310544s
+cn(158,74) 
+% performing step started
+0.2506 598 in(106)
+% performing step elapsed: 46.223873502s
+cn(158,74) in(106) 
+% performing step started
+0.0334 578 in(159)
+% performing step elapsed: 33.84946097s
+cn(158,74) in(106) in(159) 
+% performing step started
+0.0346 558 in(61)
+% performing step elapsed: 32.566808519s
+cn(158,74) in(106) in(159) in(61) 
+% performing step started
+0.0143 550 in(469)
+% performing step elapsed: 24.406314707s
+cn(158,74) in(106) in(159) in(61) in(469) 
+% performing step started
+0.0036 548 ~in(239)
+% performing step elapsed: 20.691451623s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) 
+% performing step started
+0.0036 546 ~in(238)
+% performing step elapsed: 22.072177671s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) 
+% performing step started
+0.0037 544 ~in(369)
+% performing step elapsed: 20.15476325s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) 
+% performing step started
+0.0037 542 ~in(364)
+% performing step elapsed: 15.228427966s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) 
+% performing step started
+0.0037 540 ~in(449)
+% performing step elapsed: 17.577096773s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) 
+% performing step started
+0.0037 538 ~in(480)
+% performing step elapsed: 15.00351051s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) 
+% performing step started
+0.0037 536 ~in(207)
+% performing step elapsed: 17.739797615s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) 
+% performing step started
+0.0037 534 ~in(418)
+% performing step elapsed: 15.466510034s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) 
+% performing step started
+0.0037 532 ~in(233)
+% performing step elapsed: 18.26558881s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) 
+% performing step started
+0.0038 530 ~in(463)
+% performing step elapsed: 16.178734786s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) 
+% performing step started
+0.0038 528 ~in(371)
+% performing step elapsed: 16.744993095s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) 
+% performing step started
+0.0038 526 ~in(385)
+% performing step elapsed: 16.691466456s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) 
+% performing step started
+0.0038 524 ~in(332)
+% performing step elapsed: 15.535688347s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) ~in(332) 
+% performing step started
+0.0038 522 ~in(430)
+% performing step elapsed: 17.087036117s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) ~in(332) ~in(430) 
+% performing step started
+0.0038 520 ~in(432)
+% performing step elapsed: 17.659516448s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) ~in(332) ~in(430) ~in(432) 
+% performing step started
+0.0038 518 ~in(372)
+% performing step elapsed: 13.457188022s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) ~in(332) ~in(430) ~in(432) ~in(372) 
+% performing step started
+0.0039 516 ~in(407)
+% performing step elapsed: 15.797953268s
+cn(158,74) in(106) in(159) in(61) in(469) ~in(239) ~in(238) ~in(369) ~in(364) ~in(449) ~in(480) ~in(207) ~in(418) ~in(233) ~in(463) ~in(371) ~in(385) ~in(332) ~in(430) ~in(432) ~in(372) ~in(407) 
+% performing step started
+bins/fasb: Terminated
+
+ Performance counter stats for 'bins/fasb ./instances/jsd_pc-config/pc_config-gpus=1.lp 0 fsb-scripts/h1.fsb':
+
+        600.062,09 msec task-clock:u                     #    1,000 CPUs utilized             
+                 0      context-switches:u               #    0,000 /sec                      
+                 0      cpu-migrations:u                 #    0,000 /sec                      
+             5.905      page-faults:u                    #    9,841 /sec                      
+ 2.325.588.781.347      cycles:u                         #    3,876 GHz                       
+ 5.138.855.199.781      instructions:u                   #    2,21  insn per cycle            
+   852.166.387.485      branches:u                       #    1,420 G/sec                     
+    12.852.653.231      branch-misses:u                  #    1,51% of all branches           
+
+     600,072192573 seconds time elapsed
+
+     599,211921000 seconds user
+       0,259826000 seconds sys
+
+

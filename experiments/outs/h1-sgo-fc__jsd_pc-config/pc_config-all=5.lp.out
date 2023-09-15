@@ -1,0 +1,526 @@
+fasb v0.1.0
+42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
+' max#f
+#?
+1958
+\ #f!0 | $$.@
+% performing step started
+0.7865 418 cn(40,111)
+% performing step elapsed: 162.909221718s
+cn(40,111) 
+% performing step started
+0.2392 318 in(52)
+% performing step elapsed: 13.178408156s
+cn(40,111) in(52) 
+% performing step started
+0.0314 308 in(34)
+% performing step elapsed: 8.28899336s
+cn(40,111) in(52) in(34) 
+% performing step started
+0.0325 298 in(108)
+% performing step elapsed: 7.773600388s
+cn(40,111) in(52) in(34) in(108) 
+% performing step started
+0.0336 288 in(118)
+% performing step elapsed: 7.312391919s
+cn(40,111) in(52) in(34) in(108) in(118) 
+% performing step started
+0.0278 280 in(274)
+% performing step elapsed: 6.921712317s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) 
+% performing step started
+0.0071 278 ~in(281)
+% performing step elapsed: 6.695642182s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) 
+% performing step started
+0.0072 276 ~in(200)
+% performing step elapsed: 6.660552556s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) 
+% performing step started
+0.0072 274 ~in(165)
+% performing step elapsed: 6.577125105s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) 
+% performing step started
+0.0073 272 ~in(216)
+% performing step elapsed: 6.542583018s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) 
+% performing step started
+0.0074 270 ~in(215)
+% performing step elapsed: 6.494444189s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) 
+% performing step started
+0.0074 268 ~in(234)
+% performing step elapsed: 6.427874941s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) 
+% performing step started
+0.0075 266 ~in(140)
+% performing step elapsed: 6.374223425s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) 
+% performing step started
+0.0075 264 ~in(238)
+% performing step elapsed: 6.332676514s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) 
+% performing step started
+0.0076 262 ~in(183)
+% performing step elapsed: 6.217651808s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) 
+% performing step started
+0.0076 260 ~in(267)
+% performing step elapsed: 6.19974537s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) 
+% performing step started
+0.0077 258 ~in(219)
+% performing step elapsed: 6.160510975s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) 
+% performing step started
+0.0078 256 ~in(207)
+% performing step elapsed: 6.117274116s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) 
+% performing step started
+0.0078 254 ~in(175)
+% performing step elapsed: 6.030374818s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) 
+% performing step started
+0.0079 252 ~in(163)
+% performing step elapsed: 5.976300341s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) 
+% performing step started
+0.0079 250 ~in(139)
+% performing step elapsed: 5.903060122s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) 
+% performing step started
+0.0080 248 ~in(237)
+% performing step elapsed: 5.862815161s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) 
+% performing step started
+0.0081 246 ~in(188)
+% performing step elapsed: 5.766684781s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) 
+% performing step started
+0.0081 244 ~in(143)
+% performing step elapsed: 5.689387273s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) 
+% performing step started
+0.0082 242 ~in(248)
+% performing step elapsed: 5.606492037s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) 
+% performing step started
+0.0083 240 ~in(250)
+% performing step elapsed: 5.593463148s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) 
+% performing step started
+0.0083 238 ~in(268)
+% performing step elapsed: 5.510612424s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) 
+% performing step started
+0.0084 236 ~in(149)
+% performing step elapsed: 5.478402232s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) 
+% performing step started
+0.0085 234 ~in(157)
+% performing step elapsed: 5.387058622s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) 
+% performing step started
+0.0085 232 ~in(154)
+% performing step elapsed: 5.314500197s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) 
+% performing step started
+0.0086 230 ~in(184)
+% performing step elapsed: 5.234538855s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) 
+% performing step started
+0.0087 228 ~in(151)
+% performing step elapsed: 5.155750161s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) 
+% performing step started
+0.0088 226 ~in(193)
+% performing step elapsed: 5.072600646s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) 
+% performing step started
+0.0088 224 ~in(196)
+% performing step elapsed: 5.012228326s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) 
+% performing step started
+0.0089 222 ~in(209)
+% performing step elapsed: 4.940754935s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) 
+% performing step started
+0.0090 220 ~in(225)
+% performing step elapsed: 4.872995054s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) 
+% performing step started
+0.0091 218 ~in(229)
+% performing step elapsed: 4.77711292s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) 
+% performing step started
+0.0092 216 ~in(138)
+% performing step elapsed: 4.714505856s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) 
+% performing step started
+0.0093 214 ~in(279)
+% performing step elapsed: 4.631014432s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) 
+% performing step started
+0.0093 212 ~in(191)
+% performing step elapsed: 4.58431643s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) 
+% performing step started
+0.0094 210 ~in(231)
+% performing step elapsed: 4.508997052s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) 
+% performing step started
+0.0095 208 ~in(262)
+% performing step elapsed: 4.645511341s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) 
+% performing step started
+0.0096 206 ~in(227)
+% performing step elapsed: 4.60910113s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) 
+% performing step started
+0.0097 204 ~in(233)
+% performing step elapsed: 4.535673784s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) 
+% performing step started
+0.0098 202 ~in(147)
+% performing step elapsed: 4.463337484s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) 
+% performing step started
+0.0099 200 ~in(166)
+% performing step elapsed: 4.388860179s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) 
+% performing step started
+0.0100 198 ~in(136)
+% performing step elapsed: 4.30798105s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) 
+% performing step started
+0.0101 196 ~in(224)
+% performing step elapsed: 4.237456196s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) 
+% performing step started
+0.0102 194 ~in(144)
+% performing step elapsed: 4.160352154s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) 
+% performing step started
+0.0103 192 ~in(141)
+% performing step elapsed: 4.100921766s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) 
+% performing step started
+0.0104 190 ~in(202)
+% performing step elapsed: 4.050506506s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) 
+% performing step started
+0.0105 188 ~in(179)
+% performing step elapsed: 3.96915805s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) 
+% performing step started
+0.0106 186 ~in(167)
+% performing step elapsed: 3.880016453s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) 
+% performing step started
+0.0108 184 ~in(160)
+% performing step elapsed: 3.806323669s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) 
+% performing step started
+0.0109 182 ~in(192)
+% performing step elapsed: 3.745942731s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) 
+% performing step started
+0.0110 180 ~in(280)
+% performing step elapsed: 3.682848036s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) 
+% performing step started
+0.0111 178 ~in(266)
+% performing step elapsed: 3.620717873s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) 
+% performing step started
+0.0112 176 ~in(223)
+% performing step elapsed: 3.56914086s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) 
+% performing step started
+0.0114 174 ~in(235)
+% performing step elapsed: 3.50444394s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) 
+% performing step started
+0.0115 172 ~in(148)
+% performing step elapsed: 3.452493458s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) 
+% performing step started
+0.0116 170 ~in(205)
+% performing step elapsed: 3.3780097s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) 
+% performing step started
+0.0118 168 ~in(260)
+% performing step elapsed: 3.310322949s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) 
+% performing step started
+0.0119 166 ~in(228)
+% performing step elapsed: 3.256744262s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) 
+% performing step started
+0.0120 164 ~in(190)
+% performing step elapsed: 3.194566162s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) 
+% performing step started
+0.0122 162 ~in(261)
+% performing step elapsed: 3.140504925s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) 
+% performing step started
+0.0123 160 ~in(173)
+% performing step elapsed: 3.086034006s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) 
+% performing step started
+0.0125 158 ~in(226)
+% performing step elapsed: 3.021675671s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) 
+% performing step started
+0.0127 156 ~in(197)
+% performing step elapsed: 2.969732328s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) 
+% performing step started
+0.0128 154 ~in(150)
+% performing step elapsed: 2.907720119s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) 
+% performing step started
+0.0130 152 ~in(206)
+% performing step elapsed: 2.85629201s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) 
+% performing step started
+0.0132 150 ~in(182)
+% performing step elapsed: 2.802617203s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) 
+% performing step started
+0.0133 148 ~in(255)
+% performing step elapsed: 2.739127011s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) 
+% performing step started
+0.0135 146 ~in(203)
+% performing step elapsed: 2.701389245s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) 
+% performing step started
+0.0137 144 ~in(174)
+% performing step elapsed: 2.638666142s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) 
+% performing step started
+0.0139 142 ~in(245)
+% performing step elapsed: 2.583631249s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) 
+% performing step started
+0.0141 140 ~in(247)
+% performing step elapsed: 2.522545196s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) 
+% performing step started
+0.0143 138 ~in(212)
+% performing step elapsed: 2.473149967s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) 
+% performing step started
+0.0145 136 ~in(155)
+% performing step elapsed: 2.413740266s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) 
+% performing step started
+0.0147 134 ~in(256)
+% performing step elapsed: 2.368034176s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) 
+% performing step started
+0.0149 132 ~in(269)
+% performing step elapsed: 2.32084122s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) 
+% performing step started
+0.0152 130 ~in(236)
+% performing step elapsed: 2.288760016s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) 
+% performing step started
+0.0154 128 ~in(162)
+% performing step elapsed: 2.226008433s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) 
+% performing step started
+0.0156 126 ~in(185)
+% performing step elapsed: 2.180673269s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) 
+% performing step started
+0.0159 124 ~in(146)
+% performing step elapsed: 2.14354797s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) 
+% performing step started
+0.0161 122 ~in(161)
+% performing step elapsed: 2.090465497s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) 
+% performing step started
+0.0164 120 ~in(152)
+% performing step elapsed: 2.050660691s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) 
+% performing step started
+0.0167 118 ~in(282)
+% performing step elapsed: 2.004219494s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) 
+% performing step started
+0.0169 116 ~in(265)
+% performing step elapsed: 1.965790214s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) 
+% performing step started
+0.0172 114 ~in(198)
+% performing step elapsed: 1.91034271s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) 
+% performing step started
+0.0175 112 ~in(221)
+% performing step elapsed: 1.861787983s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) 
+% performing step started
+0.0179 110 ~in(171)
+% performing step elapsed: 1.825597683s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) 
+% performing step started
+0.0182 108 ~in(257)
+% performing step elapsed: 1.774392785s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) 
+% performing step started
+0.0185 106 ~in(246)
+% performing step elapsed: 1.734165557s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) 
+% performing step started
+0.0189 104 ~in(142)
+% performing step elapsed: 1.701609175s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) 
+% performing step started
+0.0192 102 ~in(232)
+% performing step elapsed: 1.65701101s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) 
+% performing step started
+0.0196 100 ~in(252)
+% performing step elapsed: 1.617945233s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) 
+% performing step started
+0.0200 98 ~in(217)
+% performing step elapsed: 1.587264074s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) 
+% performing step started
+0.0204 96 ~in(270)
+% performing step elapsed: 1.544760621s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) 
+% performing step started
+0.0208 94 ~in(263)
+% performing step elapsed: 1.502750415s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) 
+% performing step started
+0.0213 92 ~in(210)
+% performing step elapsed: 1.464950966s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) 
+% performing step started
+0.0217 90 ~in(145)
+% performing step elapsed: 1.419851769s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) 
+% performing step started
+0.0222 88 ~in(199)
+% performing step elapsed: 1.380363903s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) 
+% performing step started
+0.0227 86 ~in(158)
+% performing step elapsed: 1.339417038s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) 
+% performing step started
+0.0233 84 ~in(177)
+% performing step elapsed: 1.299938712s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) 
+% performing step started
+0.0238 82 ~in(214)
+% performing step elapsed: 1.254981902s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) 
+% performing step started
+0.0244 80 ~in(159)
+% performing step elapsed: 1.215180129s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) 
+% performing step started
+0.0250 78 ~in(241)
+% performing step elapsed: 1.176795469s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) 
+% performing step started
+0.0256 76 ~in(211)
+% performing step elapsed: 1.140511141s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) 
+% performing step started
+0.0263 74 ~in(169)
+% performing step elapsed: 1.099038999s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) 
+% performing step started
+0.0270 72 ~in(254)
+% performing step elapsed: 1.060937429s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) 
+% performing step started
+0.0278 70 ~in(156)
+% performing step elapsed: 1.028092019s
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) 
+% performing step started
+0.0286 68 ~in(153)
+% performing step elapsed: 990.944926ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) 
+% performing step started
+0.0294 66 ~in(249)
+% performing step elapsed: 959.586788ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) 
+% performing step started
+0.0303 64 ~in(258)
+% performing step elapsed: 924.626637ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) 
+% performing step started
+0.0312 62 ~in(178)
+% performing step elapsed: 894.329165ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) 
+% performing step started
+0.0323 60 ~in(194)
+% performing step elapsed: 858.404972ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) 
+% performing step started
+0.0333 58 ~in(218)
+% performing step elapsed: 825.279815ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) 
+% performing step started
+0.0345 56 ~in(187)
+% performing step elapsed: 790.981631ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) 
+% performing step started
+0.0357 54 ~in(251)
+% performing step elapsed: 760.129268ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) 
+% performing step started
+0.0370 52 ~in(259)
+% performing step elapsed: 728.87624ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) 
+% performing step started
+0.0769 48 ~in(264)
+% performing step elapsed: 698.85159ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) ~in(264) 
+% performing step started
+0.0417 46 ~in(239)
+% performing step elapsed: 642.031632ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) ~in(264) ~in(239) 
+% performing step started
+0.0435 44 ~in(222)
+% performing step elapsed: 609.611414ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) ~in(264) ~in(239) ~in(222) 
+% performing step started
+0.0455 42 ~in(220)
+% performing step elapsed: 577.91993ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) ~in(264) ~in(239) ~in(222) ~in(220) 
+% performing step started
+0.0476 40 ~in(186)
+% performing step elapsed: 548.932453ms
+cn(40,111) in(52) in(34) in(108) in(118) in(274) ~in(281) ~in(200) ~in(165) ~in(216) ~in(215) ~in(234) ~in(140) ~in(238) ~in(183) ~in(267) ~in(219) ~in(207) ~in(175) ~in(163) ~in(139) ~in(237) ~in(188) ~in(143) ~in(248) ~in(250) ~in(268) ~in(149) ~in(157) ~in(154) ~in(184) ~in(151) ~in(193) ~in(196) ~in(209) ~in(225) ~in(229) ~in(138) ~in(279) ~in(191) ~in(231) ~in(262) ~in(227) ~in(233) ~in(147) ~in(166) ~in(136) ~in(224) ~in(144) ~in(141) ~in(202) ~in(179) ~in(167) ~in(160) ~in(192) ~in(280) ~in(266) ~in(223) ~in(235) ~in(148) ~in(205) ~in(260) ~in(228) ~in(190) ~in(261) ~in(173) ~in(226) ~in(197) ~in(150) ~in(206) ~in(182) ~in(255) ~in(203) ~in(174) ~in(245) ~in(247) ~in(212) ~in(155) ~in(256) ~in(269) ~in(236) ~in(162) ~in(185) ~in(146) ~in(161) ~in(152) ~in(282) ~in(265) ~in(198) ~in(221) ~in(171) ~in(257) ~in(246) ~in(142) ~in(232) ~in(252) ~in(217) ~in(270) ~in(263) ~in(210) ~in(145) ~in(199) ~in(158) ~in(177) ~in(214) ~in(159) ~in(241) ~in(211) ~in(169) ~in(254) ~in(156) ~in(153) ~in(249) ~in(258) ~in(178) ~in(194) ~in(218) ~in(187) ~in(251) ~in(259) ~in(264) ~in(239) ~in(222) ~in(220) ~in(186) 
+% performing step started
+bins/fasb: Terminated
+
+ Performance counter stats for 'bins/fasb ./instances/jsd_pc-config/pc_config-all=5.lp 0 fsb-scripts/h1.fsb':
+
+        600.077,48 msec task-clock:u                     #    1,000 CPUs utilized             
+                 0      context-switches:u               #    0,000 /sec                      
+                 0      cpu-migrations:u                 #    0,000 /sec                      
+             4.935      page-faults:u                    #    8,224 /sec                      
+ 2.092.672.708.405      cycles:u                         #    3,487 GHz                       
+ 3.991.188.582.932      instructions:u                   #    1,91  insn per cycle            
+   730.793.618.292      branches:u                       #    1,218 G/sec                     
+     9.291.882.009      branch-misses:u                  #    1,27% of all branches           
+
+     600,101146322 seconds time elapsed
+
+     598,260082000 seconds user
+       1,145120000 seconds sys
+
+

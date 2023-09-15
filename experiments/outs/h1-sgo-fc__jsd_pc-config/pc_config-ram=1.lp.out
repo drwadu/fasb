@@ -1,0 +1,26 @@
+fasb v0.1.0
+42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
+' max#f
+#?
+6302
+\ #f!0 | $$.@
+% performing step started
+bins/fasb: Terminated
+
+ Performance counter stats for 'bins/fasb ./instances/jsd_pc-config/pc_config-ram=1.lp 0 fsb-scripts/h1.fsb':
+
+        600.076,98 msec task-clock:u                     #    1,000 CPUs utilized             
+                 0      context-switches:u               #    0,000 /sec                      
+                 0      cpu-migrations:u                 #    0,000 /sec                      
+            19.465      page-faults:u                    #   32,438 /sec                      
+ 2.059.069.316.001      cycles:u                         #    3,431 GHz                       
+ 3.540.742.190.350      instructions:u                   #    1,72  insn per cycle            
+   557.814.375.793      branches:u                       #  929,571 M/sec                     
+    11.732.167.278      branch-misses:u                  #    2,10% of all branches           
+
+     600,093388316 seconds time elapsed
+
+     599,349518000 seconds user
+       0,086548000 seconds sys
+
+
