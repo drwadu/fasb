@@ -292,7 +292,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             .collect();
                     }
                     Some((f, None)) => {
-                        println!("{f} _");
+                        println!("_ _ {f}");
                         *facets = nav
                             .facet_inducing_atoms(route.iter())
                             .ok_or(NavigatorError::None)?
@@ -310,30 +310,24 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             Some("man") => crate::config::manual(),
             Some("\\") => {
                 let tmp = expr.replace("\\", "");
+
                 let mut src = tmp.trim().split(" | ");
                 let mut pred = match src.next() {
                     Some(expr) => expr.split(" "),
                     _ => {
-                        println!("specify condition");
+                        println!("error: specify condition");
                         return Ok(());
                     }
                 };
                 let inst = match src.next() {
                     Some(expr) => expr.split(".").collect::<Vec<_>>(),
                     _ => {
-                        println!("specify instructions in loop");
+                        println!("error: found no instructions");
                         return Ok(());
                     }
                 };
 
                 match pred.next() {
-                    Some("_") => {
-                        while !facets.is_empty() {
-                            for cmd in &inst {
-                                self.command(cmd.trim().to_owned(), nav, facets, route)?
-                            }
-                        }
-                    }
                     Some("!=") => match pred.next() {
                         Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
                             Some(x) => {
@@ -415,6 +409,70 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                         Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() >= x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        _ => {
+                            println!("error: unknown lhs");
+                            return Ok(());
+                        }
+                    },
+                    Some("<") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() < x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() < x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        _ => {
+                            println!("error: unknown lhs");
+                            return Ok(());
+                        }
+                    },
+                    Some("<=") => match pred.next() {
+                        Some("#f") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && 2 * facets.len() <= x {
+                                    for cmd in &inst {
+                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                    }
+                                }
+                            }
+                            _ => {
+                                println!("error: unknown rhs");
+                                return Ok(());
+                            }
+                        },
+                        Some("#r") => match pred.next().and_then(|n| n.parse::<usize>().ok()) {
+                            Some(x) => {
+                                while !facets.is_empty() && route.len() <= x {
                                     for cmd in &inst {
                                         self.command(cmd.trim().to_owned(), nav, facets, route)?
                                     }
