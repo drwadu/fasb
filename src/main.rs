@@ -15,6 +15,9 @@ use crate::config::PROMPT;
 use crate::interpreter::Evaluate;
 use crate::modes::Mode;
 
+#[cfg(feature = "verbose")]
+use std::time::Instant;
+
 #[cfg(not(feature = "interpreter"))]
 fn main() -> Result<()> {
     let mut input = std::env::args().skip(1);
@@ -35,8 +38,11 @@ fn main() -> Result<()> {
         env!("CARGO_PKG_VERSION"),
     );
 
+    #[cfg(feature = "verbose")]
+    println!("% startup started");
+    #[cfg(feature = "verbose")]
+    let start = Instant::now();
     let mut nav = Navigator::new(lp, args)?;
-
     let mut mode = Mode::GoalOriented(None::<usize>);
     let mut route = Vec::new();
     let mut facets = nav
@@ -45,6 +51,8 @@ fn main() -> Result<()> {
         .iter()
         .map(|f| lex::repr(*f))
         .collect::<Vec<_>>();
+    #[cfg(feature = "verbose")]
+    println!("% startup elapsed: {:?}", start.elapsed());
 
     let mut rl = DefaultEditor::new().map_err(|_| NavigatorError::None)?;
     loop {
@@ -93,6 +101,10 @@ fn main() -> Result<()> {
         read_to_string(Path::new(args.last().unwrap())).map_err(|_| NavigatorError::None)?;
     args.pop();
 
+    #[cfg(feature = "verbose")]
+    println!("% startup started");
+    #[cfg(feature = "verbose")]
+    let start = Instant::now();
     let mut nav = Navigator::new(lp, args)?;
     let mut mode = Mode::GoalOriented(None::<usize>);
     let mut route = Vec::new();
@@ -102,6 +114,8 @@ fn main() -> Result<()> {
         .iter()
         .map(|f| lex::repr(*f))
         .collect::<Vec<_>>();
+    #[cfg(feature = "verbose")]
+    println!("% startup elapsed: {:?}", start.elapsed());
 
     for line in script.lines() {
         println!("{PROMPT}{line}");
