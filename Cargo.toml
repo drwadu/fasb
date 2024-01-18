@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 rustyline = "11.0.0"
 regex = "1"
-savan = "0.1.0"
+savan = "0.2.0"
 
 [features]
 verbose = []
