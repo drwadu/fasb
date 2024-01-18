@@ -12,6 +12,11 @@ pub const DEL_LAST: &'static str = "-";
 pub const CHANGE_MODE: &'static str = "'";
 pub const PROPOSE_STEP: &'static str = "$";
 pub const TAKE_STEP: &'static str = "$$";
+pub const ADD_RULE: &'static str = "L+";
+pub const DELETE_RULE: &'static str = "L-";
+pub const SHOW_PROGRAM: &'static str = "L";
+pub const SHOW_ATOMS: &'static str = "A";
+pub const IS_ATOM: &'static str = "AA";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {
@@ -24,9 +29,15 @@ pub(crate) fn manual() {
     println!("facet counts under each facets                ->  {FACET_COUNTS}");
     println!("answer set count under route                  ->  {ANSWER_SET_COUNT}");
     println!("answer set counts under each current facets   ->  {ANSWER_SET_COUNTS}");
-    println!("route                                         ->  {SHOW_ROUTE}");
-    println!("facets                                        ->  {SHOW_FACETS}");
+    println!("display route                                 ->  {SHOW_ROUTE}");
+    println!("display facets                                ->  {SHOW_FACETS}");
     println!("deactivate previous facet                     ->  {DEL_LAST}");
     println!("deactivate all facets                         ->  {CLEAR_ROUTE}");
+    println!("deactivate all facets                         ->  {CLEAR_ROUTE}");
+    println!("display program                               ->  {SHOW_PROGRAM}");
+    println!("display atoms                                 ->  {SHOW_ATOMS}");
+    println!("atom check                                    ->  {IS_ATOM}");
+    println!("add rule                                      ->  {ADD_RULE}");
+    println!("delete rule                                   ->  {DELETE_RULE}");
     println!("see documentation for more details");
 }
