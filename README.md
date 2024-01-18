@@ -7,7 +7,7 @@ fasb is a REPL system implemented on top of the [clingo](https://github.com/pota
 
 ## quickstart
 fasb as a REPL:
-```bash
+```
 $ cargo install fasb
 $ fasb program.lp 0
 fasb v0.1.0
@@ -39,7 +39,7 @@ b d e
 found 1
 ```
 fasb as an interpreter:
-```bash
+```
 $ cat script.fsb
 ! 1                  -- output 1 answer set
 #?                   -- query facet count        
