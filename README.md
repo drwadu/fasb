@@ -8,7 +8,6 @@ fasb is a REPL system implemented on top of the [clingo](https://github.com/pota
 ## quickstart
 fasb as a REPL:
 ```
-$ cargo install fasb
 $ fasb program.lp 0
 fasb v0.1.0
 42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
