@@ -494,6 +494,47 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     }
                 };
             }
+            Some(IS_ATOM) => match split_expr.next().and_then(|a| nav.is_known(a.to_owned())) {
+                Some(v) => println!("{v}"),
+                _ => println!("error: invalid atom"),
+            },
+            Some(SHOW_ATOMS) => {
+                nav.atoms().for_each(|a| {
+                    print!("{a} ");
+                });
+                println!();
+            }
+            Some(SHOW_PROGRAM) => {
+                println!("{}", nav.program());
+            }
+            Some(ADD_RULE) => {
+                match split_expr.next().map(|r| nav.add_rule(r)) {
+                    Some(Ok(_)) => (),
+                    Some(Err(e)) => {
+                        println!("{e} error: provide rule (with no whitespaces) to add")
+                    }
+                    _ => (),
+                };
+                *facets = nav
+                    .facet_inducing_atoms(route.iter())
+                    .ok_or(NavigatorError::None)?
+                    .iter()
+                    .map(|f| lex::repr(*f))
+                    .collect();
+            }
+            Some(DELETE_RULE) => {
+                match split_expr.next().map(|r| nav.remove_rule(r)) {
+                    Some(Ok(_)) => (),
+                    Some(Err(e)) => println!("{e} error: provide rule to remove"),
+                    _ => (),
+                };
+                *facets = nav
+                    .facet_inducing_atoms(route.iter())
+                    .ok_or(NavigatorError::None)?
+                    .iter()
+                    .map(|f| lex::repr(*f))
+                    .collect();
+            }
             _ => println!("noop [unknown command]"),
         }
 

@@ -11,31 +11,62 @@ fasb as a REPL:
 $ fasb program.lp 0
 fasb v0.1.0
 42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
-:: ! 2        -- enumerate up to 2 answer sets
+:: ! 2         -- enumerate up to 2 answer sets
 solution 1:
 a e
 solution 2:
 b d e
 found 2
-:: ?          -- query facets
+:: ?           -- query facets
 b d c a
-:: #!!        -- query weights based on answer set counting
-0.3333 2 b    -- [reduces # by] [remaining #] [facet]
+:: #!!         -- query weights based on answer set counting
+0.3333 2 b     -- [reduces # by] [remaining #] [facet]
 0.6667 1 d
 0.3333 2 ~d
 0.6667 1 c
 0.3333 2 ~c
 0.6667 1 a
 0.3333 2 ~a
-:: ' max#f    -- use facet-counting strictly goal-oriented mode 
-:: $$         -- perform step (causing highest uncertainty reduction)
-1.0000 0 d    -- activated facet `d` (reduced facet count by 100%)
-:: @          -- query current route
+:: ' max#f     -- use facet-counting strictly goal-oriented mode 
+:: $$          -- perform step (causing highest uncertainty reduction)
+1.0000 0 d     -- activated facet `d` (reduced facet count by 100%)
+:: @           -- query current route
 d
-:: !          -- enumerate all answer sets under current route
+:: !           -- enumerate all answer sets under current route
 solution 1:
 b d e
 found 1
+:: --          -- clear route
+:: #!          -- query answer set count
+3
+:: L+ {p;q;r}. -- add rule
+:: L
+a;b.
+c;d :- b.
+e.
+
+{p;q;r}.
+:: A          -- display atoms  
+a c d p q b e r
+:: ?          -- display facets
+b q a c p r d
+:: #!
+24
+:: #??         -- query weights based on facet counting
+0.2857 10 b
+0.5714 6 ~b
+0.1429 12 q
+0.1429 12 ~q
+0.5714 6 a
+0.2857 10 ~a
+0.1429 12 p
+0.1429 12 ~p
+0.5714 6 d
+0.1429 12 ~d
+0.5714 6 c
+0.1429 12 ~c
+0.1429 12 r
+0.1429 12 ~r
 ```
 fasb as an interpreter:
 ```
@@ -98,15 +129,20 @@ The designated syntax for regular expressions (regex) can be found [here](https:
 {min,max}#{a,f}                     
   *  by default goal-oriented
   * min* ... explore 
-   * max* ... strictly goal-oriented 
-   * *#a ... answer set counting 
-   * *#f ... facet counting 
-   * for supported model counting use *#a and --supp-models flag at start up (fasb 0 program.lp --supp-models)
+  * max* ... strictly goal-oriented 
+  * *#a ... answer set counting 
+  * *#f ... facet counting 
+  * for supported model counting use *#a and --supp-models flag at start up (fasb 0 program.lp --supp-models)
 *  `$ regex` ... query proposed next step in selected mode among facets matching regex                          
 * `#?` ... query facet count
 * `#!` ... query answer set count 
 * `$$ regex` ... perform next step in selected mode among facets matching regex                          
 * `#?? regex` ... query facet counts (weights) under each facets matching regex
 * `#!! regex` ... query answer set counts (weights) under each facets matching regex
+* `L+ rule` ... add rule (no whitespaces in rule permitted)
+* `L- rule` ... remove rule
+* `L` ... display underlying program
+* `A` ... display atoms (herbrand base)
+* `AA atom` ... check whether atom belongs to herbrand base
 * `man` ... display brief manual
 * `:q` ... exit fasb 
