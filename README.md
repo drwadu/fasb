@@ -46,9 +46,9 @@ c;d :- b.
 e.
 
 {p;q;r}.
-:: A          -- display atoms  
+:: A           -- display atoms  
 a c d p q b e r
-:: ?          -- display facets
+:: ?           -- display facets
 b q a c p r d
 :: #!
 24
@@ -125,9 +125,8 @@ The designated syntax for regular expressions (regex) can be found [here](https:
 * `--` ... deactivate all facets
 * `? regex` ... display current facets matching regex
 * `@` ... query current route
-* `' arg` ... select arg=[navigation mode] among 
-{min,max}#{a,f}                     
-  *  by default goal-oriented
+* `' arg` ... select navigation mode arg=[{min,max}#{a,f}|go] among 
+  *  by default goal-oriented (go)
   * min* ... explore 
   * max* ... strictly goal-oriented 
   * *#a ... answer set counting 
