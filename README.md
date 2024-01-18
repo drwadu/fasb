@@ -1,7 +1,7 @@
 ![build workflow](https://github.com/drwadu/fasb/actions/workflows/build.yml/badge.svg)
 ![test workflow](https://github.com/drwadu/fasb/actions/workflows/test.yml/badge.svg)
 # fasb
-Implementation of the **f**aceted **a**nswer **s**et **b**rowser, first metioned in https://doi.org/10.1609/aaai.v36i5.20506.
+Implementation of the **f**aceted **a**nswer **s**et **b**rowser, first mentioned in https://doi.org/10.1609/aaai.v36i5.20506.
 
 fasb is a REPL system implemented on top of the [clingo](https://github.com/potassco/clingo) solver. It enables answer set navigation alongside quantitative reasoning.
 
