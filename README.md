@@ -125,7 +125,7 @@ The designated syntax for regular expressions (regex) can be found [here](https:
 * `--` ... deactivate all facets
 * `? regex` ... display current facets matching regex
 * `@` ... query current route
-* `' arg` ... select navigation mode arg=[{min,max}#{a,f}|go] among 
+* `' arg` ... select navigation mode arg=[{min,max}#{a,f}|go] 
   *  by default goal-oriented (go)
   * min* ... explore 
   * max* ... strictly goal-oriented 
