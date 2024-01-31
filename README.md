@@ -131,7 +131,6 @@ The designated syntax for regular expressions (regex) can be found [here](https:
   * max* ... strictly goal-oriented 
   * *#a ... answer set counting 
   * *#f ... facet counting 
-  * for supported model counting use *#a and --supp-models flag at start up (fasb 0 program.lp --supp-models)
 *  `$ regex` ... query proposed next step in selected mode among facets matching regex                          
 * `#?` ... query facet count
 * `#!` ... query answer set count 
