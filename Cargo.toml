@@ -15,3 +15,8 @@ savan = "0.2.0"
 [features]
 verbose = []
 interpreter = []
+
+[[bin]]
+name = "fasb"
+path = "src/main.rs"
+edition = "2021"   
