@@ -2,6 +2,10 @@
 name = "fasb"
 version = "0.1.0"
 edition = "2021"
+authors = ["drwadu"]
+description = "fasb - faceted answer set browser"
+repository = "https://github.com/drwadu/fasb"
+license = "MIT"
 
 [dependencies]
 rustyline = "11.0.0"
