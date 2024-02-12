@@ -1,3 +1,4 @@
+[![Crates.io](https://img.shields.io/crates/v/fasb?label=crates.io%20%28bin%29)](https://crates.io/crates/fasb)
 ![build workflow](https://github.com/drwadu/fasb/actions/workflows/build.yml/badge.svg)
 ![test workflow](https://github.com/drwadu/fasb/actions/workflows/test.yml/badge.svg)
 # fasb
