@@ -17,7 +17,8 @@ pub const DELETE_RULE: &'static str = "L-";
 pub const SHOW_PROGRAM: &'static str = "L";
 pub const SHOW_ATOMS: &'static str = "A";
 pub const IS_ATOM: &'static str = "AA";
-pub const SOE: &'static str = ":soe";
+pub const SOE: &'static str = ":!";
+pub const SOE_VERBOSE: &'static str = ":!v";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {

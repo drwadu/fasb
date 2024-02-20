@@ -548,6 +548,18 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 };
                 nav.sieve(&fs)?;
             }
+            Some(SOE_VERBOSE) => {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    facets
+                        .iter()
+                        .filter(|f| re.is_match(f))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    facets.to_vec()
+                };
+                nav.sieve_verbose(&fs)?;
+            }
             _ => println!("noop [unknown command]"),
         }
 
