@@ -10,7 +10,7 @@ license = "MIT"
 [dependencies]
 rustyline = "11.0.0"
 regex = "1"
-savan = "0.2.0"
+savan = { git = "https://github.com/drwadu/savan.git", branch = "feature/soe" }
 
 [features]
 verbose = []

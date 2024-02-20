@@ -7,6 +7,7 @@ use savan::nav::{
     facets::Facets,
     weights::{count, Weight},
     Navigator,
+    soe::Collect,
 };
 
 #[cfg(feature = "verbose")]
@@ -534,6 +535,18 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .iter()
                     .map(|f| lex::repr(*f))
                     .collect();
+            }
+            Some(SOE) => {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    facets
+                        .iter()
+                        .filter(|f| re.is_match(f))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    facets.to_vec()
+                };
+                nav.sieve(&fs)?;
             }
             _ => println!("noop [unknown command]"),
         }
