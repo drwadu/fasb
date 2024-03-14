@@ -10,6 +10,10 @@ use savan::nav::{
     Navigator,
 };
 
+use std::fs::File;
+use std::io::Write;
+use std::process::Command;
+
 #[cfg(feature = "verbose")]
 use std::time::Instant;
 
@@ -71,6 +75,24 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
 
                 #[cfg(feature = "verbose")]
                 println!("% enumeration elapsed: {:?}", start.elapsed());
+            }
+            Some(ENUMERATE_SOLUTIONS_VIZ) => {
+                let jsons = nav.enumerate_solutions_outf2(
+                    split_expr
+                        .next()
+                        .and_then(|n| n.parse::<usize>().ok())
+                        .take(),
+                    route.iter().map(|s| s.as_ref()).chain(split_expr),
+                )?;
+                for (i, json) in jsons.iter().enumerate() {
+                    println!("{}", json);
+                    let path = format!("solution{:?}.json", i);
+                    let mut output = File::create(&path)?;
+                    write!(output, "{}", json)?;
+                }
+                let out = Command::new("sh").args(&["fasbviz.sh"]).output()?;
+                println!("{}", String::from_utf8(out.stdout).unwrap());
+                println!("{}", String::from_utf8(out.stderr).unwrap());
             }
             Some(SHOW_FACETS) => {
                 if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
@@ -137,9 +159,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     let mut weight = Weight::AnswerSetCounting;
                     match self {
                         Self::IascarMinWeightedAnswerSetCounting(s)
-                        | Self::IascarMaxWeightedAnswerSetCounting(s) =>{ println!("+++");weight
-                            .show_all(route, facets, s.to_string())
-                            .ok_or(NavigatorError::None)?},
+                        | Self::IascarMaxWeightedAnswerSetCounting(s) => {
+                            println!("+++");
+                            weight
+                                .show_all(route, facets, s.to_string())
+                                .ok_or(NavigatorError::None)?
+                        }
                         _ => {
                             let ovr_count = match self {
                                 Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
@@ -169,9 +194,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     let mut weight = Weight::AnswerSetCounting;
                     match self {
                         Self::IascarMinWeightedAnswerSetCounting(s)
-                        | Self::IascarMaxWeightedAnswerSetCounting(s) =>{ println!("+++");weight
-                            .show_all(route, facets, s.to_string())
-                            .ok_or(NavigatorError::None)?},
+                        | Self::IascarMaxWeightedAnswerSetCounting(s) => {
+                            println!("+++");
+                            weight
+                                .show_all(route, facets, s.to_string())
+                                .ok_or(NavigatorError::None)?
+                        }
                         _ => {
                             let ovr_count = match self {
                                 Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
@@ -608,6 +636,27 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     facets.to_vec()
                 };
                 nav.sieve_verbose(&fs)?;
+            }
+            Some(SOE_VIZ) => {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    facets
+                        .iter()
+                        .filter(|f| re.is_match(f))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    facets.to_vec()
+                };
+                let jsons = nav.sieve_outf2(&fs)?;
+                for (i, json) in jsons.iter().enumerate() {
+                    println!("{}", json);
+                    let path = format!("solution{:?}.json", i);
+                    let mut output = File::create(&path)?;
+                    write!(output, "{}", json)?;
+                }
+                let out = Command::new("sh").args(&["fasbviz.sh"]).output()?;
+                println!("{}", String::from_utf8(out.stdout).unwrap());
+                println!("{}", String::from_utf8(out.stderr).unwrap());
             }
             _ => println!("noop [unknown command]"),
         }

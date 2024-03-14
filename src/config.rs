@@ -6,6 +6,7 @@ pub const FACET_COUNTS: &'static str = "#??";
 pub const ANSWER_SET_COUNT: &'static str = "#!";
 pub const ANSWER_SET_COUNTS: &'static str = "#!!";
 pub const ENUMERATE_SOLUTIONS: &'static str = "!";
+pub const ENUMERATE_SOLUTIONS_VIZ: &'static str = "V!";
 pub const SHOW_ROUTE: &'static str = "@";
 pub const CLEAR_ROUTE: &'static str = "--";
 pub const DEL_LAST: &'static str = "-";
@@ -19,6 +20,8 @@ pub const SHOW_ATOMS: &'static str = "A";
 pub const IS_ATOM: &'static str = "AA";
 pub const SOE: &'static str = ":!";
 pub const SOE_VERBOSE: &'static str = ":!v";
+pub const SOE_VIZ: &'static str = "V:!";
+pub const SOE_VERBOSE_VIZ: &'static str = "V:!v";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {
