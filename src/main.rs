@@ -32,11 +32,7 @@ fn main() -> Result<()> {
     let args = input.collect::<Vec<_>>();
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
 
-    println!(
-        "{} v{}\n42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f",
-        env!("CARGO_PKG_NAME"),
-        env!("CARGO_PKG_VERSION"),
-    );
+    println!("{} v{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"),);
 
     #[cfg(feature = "verbose")]
     println!("% startup started");
@@ -92,7 +88,7 @@ fn main() -> Result<()> {
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
 
     println!(
-        "{} v{}\n42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f",
+        "{} v{}\n",
         env!("CARGO_PKG_NAME"),
         env!("CARGO_PKG_VERSION"),
     );

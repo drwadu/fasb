@@ -21,11 +21,11 @@ pub const IS_ATOM: &'static str = "AA";
 pub const SOE: &'static str = ":!";
 pub const SOE_VERBOSE: &'static str = ":!v";
 pub const SOE_VIZ: &'static str = "V:!";
-pub const SOE_VERBOSE_VIZ: &'static str = "V:!v";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {
     println!("activate facets                               ->  {ACTIVATE_FACETS}");
+    println!("enumerate answer sets                         ->  {ENUMERATE_SOLUTIONS}");
     println!("select navigation mode                        ->  {CHANGE_MODE}");
     println!("perform next step                             ->  {TAKE_STEP}");
     println!("quit                                          ->  {QUIT}");

@@ -1,5 +1,5 @@
 use savan::nav::{
-    weights::{count, Weight, WeightingFunctionIascar},
+    weights::{count, Weight},
     Navigator,
 };
 
@@ -38,8 +38,6 @@ pub enum Mode<T> {
     MaxWeightedFacetCounting(T),
     MinWeightedAnswerSetCounting(T),
     MaxWeightedAnswerSetCounting(T),
-    IascarMinWeightedAnswerSetCounting(String),
-    IascarMaxWeightedAnswerSetCounting(String),
 }
 impl Mode<Option<usize>> {
     pub fn update(&mut self, with: Option<usize>) {
@@ -53,8 +51,6 @@ impl Mode<Option<usize>> {
             Self::MinWeightedAnswerSetCounting(_) => {
                 *self = Self::MinWeightedAnswerSetCounting(with)
             }
-            Self::IascarMinWeightedAnswerSetCounting(_)
-            | Self::IascarMaxWeightedAnswerSetCounting(_) => (),
         }
     }
 }
@@ -220,12 +216,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
 
                 f.zip(Some(curr))
             }
-            Self::IascarMinWeightedAnswerSetCounting(s) => Weight::AnswerSetCounting
-                .find_min_weighted(active, among, s.to_string())
-                .zip(None),
-            Self::IascarMaxWeightedAnswerSetCounting(s) => Weight::AnswerSetCounting
-                .find_max_weighted(active, among, s.to_string())
-                .zip(None),
         }
     }
 }

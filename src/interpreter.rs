@@ -6,7 +6,7 @@ use savan::nav::{
     errors::{NavigatorError, Result},
     facets::Facets,
     soe::Collect,
-    weights::{count, Weight, WeightingFunctionIascar},
+    weights::{count, Weight},
     Navigator,
 };
 
@@ -157,73 +157,41 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             Some(ANSWER_SET_COUNTS) => {
                 if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     let mut weight = Weight::AnswerSetCounting;
-                    match self {
-                        Self::IascarMinWeightedAnswerSetCounting(s)
-                        | Self::IascarMaxWeightedAnswerSetCounting(s) => {
-                            println!("+++");
-                            weight
-                                .show_all(route, facets, s.to_string())
-                                .ok_or(NavigatorError::None)?
-                        }
-                        _ => {
-                            let ovr_count = match self {
-                                Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
-                                Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
-                                _ => count(&mut weight, nav, route.iter())
-                                    .ok_or(NavigatorError::None)?,
-                            } as f32;
-                            for f in facets.iter().filter(|f| re.is_match(f)) {
-                                route.push(f.to_owned());
-                                count(&mut weight, nav, route.iter())
-                                    .map(|c| {
-                                        println!("{:.4} {:?} {f}", 1.0 - (c as f32 / ovr_count), c)
-                                    })
-                                    .ok_or(NavigatorError::None)?;
-                                route.pop();
-                                route.push(format!("~{f}"));
-                                count(&mut weight, nav, route.iter())
-                                    .map(|c| {
-                                        println!("{:.4} {:?} ~{f}", 1.0 - (c as f32 / ovr_count), c)
-                                    })
-                                    .ok_or(NavigatorError::None)?;
-                                route.pop();
-                            }
-                        }
+                    let ovr_count = match self {
+                        Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
+                        Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
+                        _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
+                    } as f32;
+                    for f in facets.iter().filter(|f| re.is_match(f)) {
+                        route.push(f.to_owned());
+                        count(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} {f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                        route.push(format!("~{f}"));
+                        count(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} ~{f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
                     }
                 } else {
                     let mut weight = Weight::AnswerSetCounting;
-                    match self {
-                        Self::IascarMinWeightedAnswerSetCounting(s)
-                        | Self::IascarMaxWeightedAnswerSetCounting(s) => {
-                            println!("+++");
-                            weight
-                                .show_all(route, facets, s.to_string())
-                                .ok_or(NavigatorError::None)?
-                        }
-                        _ => {
-                            let ovr_count = match self {
-                                Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
-                                Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
-                                _ => count(&mut weight, nav, route.iter())
-                                    .ok_or(NavigatorError::None)?,
-                            } as f32;
-                            for f in facets.iter() {
-                                route.push(f.to_owned());
-                                count(&mut weight, nav, route.iter())
-                                    .map(|c| {
-                                        println!("{:.4} {:?} {f}", 1.0 - (c as f32 / ovr_count), c)
-                                    })
-                                    .ok_or(NavigatorError::None)?;
-                                route.pop();
-                                route.push(format!("~{f}"));
-                                count(&mut weight, nav, route.iter())
-                                    .map(|c| {
-                                        println!("{:.4} {:?} ~{f}", 1.0 - (c as f32 / ovr_count), c)
-                                    })
-                                    .ok_or(NavigatorError::None)?;
-                                route.pop();
-                            }
-                        }
+                    let ovr_count = match self {
+                        Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
+                        Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
+                        _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
+                    } as f32;
+                    for f in facets.iter() {
+                        route.push(f.to_owned());
+                        count(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} {f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                        route.push(format!("~{f}"));
+                        count(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} ~{f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
                     }
                 }
             }
@@ -272,22 +240,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             .next()
                             .and_then(|n| n.parse::<usize>().ok())
                             .take(),
-                    )
-                }
-                Some("cmin#a") => {
-                    *self = Mode::IascarMinWeightedAnswerSetCounting(
-                        split_expr
-                            .next()
-                            .map(|s| s.to_string())
-                            .ok_or(NavigatorError::None)?,
-                    )
-                }
-                Some("cmax#a") => {
-                    *self = Mode::IascarMaxWeightedAnswerSetCounting(
-                        split_expr
-                            .next()
-                            .map(|s| s.to_string())
-                            .ok_or(NavigatorError::None)?,
                     )
                 }
                 Some("max#a") => {
@@ -354,8 +306,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             .ok_or(NavigatorError::None)?
                     }
                     Self::GoalOriented(_) => usize::default(),
-                    &mut Mode::IascarMinWeightedAnswerSetCounting(_)
-                    | &mut Mode::IascarMaxWeightedAnswerSetCounting(_) => 0,
                 } as f32;
 
                 match perform_next_step(self, nav, route, &fs) {
@@ -586,7 +536,10 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 println!("{}", nav.program());
             }
             Some(ADD_RULE) => {
-                match split_expr.next().map(|r| nav.add_rule(r)) {
+                match split_expr
+                    .next()
+                    .map(|r| nav.add_rule(r.replace("~", "not ")))
+                {
                     Some(Ok(_)) => (),
                     Some(Err(e)) => {
                         println!("{e} error: provide rule (with no whitespaces) to add")
@@ -601,7 +554,10 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .collect();
             }
             Some(DELETE_RULE) => {
-                match split_expr.next().map(|r| nav.remove_rule(r)) {
+                match split_expr
+                    .next()
+                    .map(|r| nav.remove_rule(r.replace("~", "not ")))
+                {
                     Some(Ok(_)) => (),
                     Some(Err(e)) => println!("{e} error: provide rule to remove"),
                     _ => (),

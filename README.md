@@ -145,7 +145,7 @@ The designated syntax for regular expressions (regex) can be found [here](https:
 * `$$ regex` ... perform next step in selected mode among facets matching regex                          
 * `#?? regex` ... query facet counts (weights) under each facets matching regex
 * `#!! regex` ... query answer set counts (weights) under each facets matching regex
-* `L+ rule` ... add rule (no whitespaces in rule permitted)
+* `L+ rule` ... add rule; no whitespaces in rule permitted & use "~" instead of "not " for negation
 * `L- rule` ... remove rule
 * `L` ... display underlying program
 * `A` ... display atoms (herbrand base)
