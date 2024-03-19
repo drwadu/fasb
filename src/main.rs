@@ -10,6 +10,7 @@ use std::path::Path;
 mod config;
 mod interpreter;
 mod modes;
+mod reencode;
 #[cfg(feature = "interpreter")]
 use crate::config::PROMPT;
 use crate::interpreter::Evaluate;
@@ -20,6 +21,8 @@ use std::time::Instant;
 
 #[cfg(not(feature = "interpreter"))]
 fn main() -> Result<()> {
+    use crate::reencode::Selection;
+
     let mut input = std::env::args().skip(1);
     let arg = match input.next() {
         Some(s) => s,
@@ -32,7 +35,12 @@ fn main() -> Result<()> {
     let args = input.collect::<Vec<_>>();
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
 
-    println!("{} v{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"),);
+    println!(
+        "{} v{}\n{}",
+        env!("CARGO_PKG_NAME"),
+        env!("CARGO_PKG_VERSION"),
+        config::WATERMARK
+    );
 
     #[cfg(feature = "verbose")]
     println!("% startup started");
@@ -47,6 +55,7 @@ fn main() -> Result<()> {
         .iter()
         .map(|f| lex::repr(*f))
         .collect::<Vec<_>>();
+    let mut selection = Selection::new();
     #[cfg(feature = "verbose")]
     println!("% startup elapsed: {:?}", start.elapsed());
 
@@ -58,7 +67,13 @@ fn main() -> Result<()> {
                     eprintln!("ReadlineError: {:?}", err);
                 }
 
-                mode.command(line.replace("_", " "), &mut nav, &mut facets, &mut route)?;
+                mode.command(
+                    line.replace("_", " "),
+                    &mut nav,
+                    &mut facets,
+                    &mut route,
+                    &mut selection,
+                )?;
             }
             Err(ReadlineError::Interrupted) => {}
             Err(ReadlineError::Eof) => {
@@ -88,9 +103,10 @@ fn main() -> Result<()> {
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
 
     println!(
-        "{} v{}\n",
+        "{} v{}\n{}",
         env!("CARGO_PKG_NAME"),
         env!("CARGO_PKG_VERSION"),
+        config::WATERMARK,
     );
 
     let script =
@@ -110,12 +126,19 @@ fn main() -> Result<()> {
         .iter()
         .map(|f| lex::repr(*f))
         .collect::<Vec<_>>();
+    let mut selection = Selection::new();
     #[cfg(feature = "verbose")]
     println!("% startup elapsed: {:?}", start.elapsed());
 
     for line in script.lines() {
         println!("{PROMPT}{line}");
-        mode.command(line.to_owned(), &mut nav, &mut facets, &mut route)?
+        mode.command(
+            line.replace("_", " "),
+            &mut nav,
+            &mut facets,
+            &mut route,
+            &mut selection,
+        )?;
     }
 
     return Ok(());

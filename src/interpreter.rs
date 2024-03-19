@@ -1,5 +1,6 @@
 use crate::config::*;
 use crate::modes::{perform_next_step, propose_next_step, Mode};
+use crate::reencode::Selection;
 use regex::Regex;
 use savan::lex;
 use savan::nav::{
@@ -27,6 +28,7 @@ where
         nav: &mut Navigator,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
+        selection: &mut Selection,
     ) -> Result<()>;
 }
 impl Evaluate<Option<usize>> for Mode<Option<usize>> {
@@ -36,6 +38,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         nav: &mut Navigator,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
+        selection: &mut Selection,
     ) -> Result<()> {
         let mut split_expr = expr.as_str().split(" ");
         match split_expr.next() {
@@ -361,7 +364,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() != x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -374,7 +383,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() != x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -393,7 +408,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() > x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -406,7 +427,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() > x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -425,7 +452,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() >= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -438,7 +471,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() >= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -457,7 +496,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() < x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -470,7 +515,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() < x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -489,7 +540,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() <= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -502,7 +559,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() <= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            selection,
+                                        )?
                                     }
                                 }
                             }
@@ -613,6 +676,14 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 let out = Command::new("sh").args(&["fasbviz.sh"]).output()?;
                 println!("{}", String::from_utf8(out.stdout).unwrap());
                 println!("{}", String::from_utf8(out.stderr).unwrap());
+            }
+            Some(ADD_C) => {
+                selection.add_to_cnf(split_expr.map(|s| s.to_owned()).collect::<Vec<_>>());
+                selection.select(nav)?
+            }
+            Some(ADD_T) => {
+                selection.add_to_dnf(split_expr.map(|s| s.to_owned()).collect::<Vec<_>>());
+                selection.select(nav)?
             }
             _ => println!("noop [unknown command]"),
         }

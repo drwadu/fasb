@@ -14,6 +14,8 @@ pub const CHANGE_MODE: &'static str = "'";
 pub const PROPOSE_STEP: &'static str = "$";
 pub const TAKE_STEP: &'static str = "$$";
 pub const ADD_RULE: &'static str = "L+";
+pub const ADD_C: &'static str = "C+";
+pub const ADD_T: &'static str = "T+";
 pub const DELETE_RULE: &'static str = "L-";
 pub const SHOW_PROGRAM: &'static str = "L";
 pub const SHOW_ATOMS: &'static str = "A";
@@ -22,6 +24,8 @@ pub const SOE: &'static str = ":!";
 pub const SOE_VERBOSE: &'static str = ":!v";
 pub const SOE_VIZ: &'static str = "V:!";
 pub const QUIT: &'static str = ":q";
+
+pub const WATERMARK: &'static str = "e4062e46d304db94e142767b7939f39dc193ab182edac6e377e25993d984b402";
 
 pub(crate) fn manual() {
     println!("activate facets                               ->  {ACTIVATE_FACETS}");
