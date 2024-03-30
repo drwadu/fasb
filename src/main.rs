@@ -58,7 +58,7 @@ fn main() -> Result<()> {
                     eprintln!("ReadlineError: {:?}", err);
                 }
 
-                mode.command(line.replace("_", " "), &mut nav, &mut facets, &mut route)?;
+                mode.command(line, &mut nav, &mut facets, &mut route)?;
             }
             Err(ReadlineError::Interrupted) => {}
             Err(ReadlineError::Eof) => {

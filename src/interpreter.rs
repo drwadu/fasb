@@ -260,7 +260,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 }
                 _ => println!("error: specify mode among {{{{min,max}}#{{f,a,s}}, go}}"),
             },
-
             Some(PROPOSE_STEP) => {
                 let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
