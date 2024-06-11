@@ -43,7 +43,7 @@ found 1
 :: --          -- clear route
 :: #!          -- query answer set count
 3
-:: > a|b&c|d     -- declare cnf query: (a or b) and (c or d)
+:: > a|b&c|d   -- declare cnf query: (a or b) and (c or d)
 ```
 fasb as an interpreter:
 ```
