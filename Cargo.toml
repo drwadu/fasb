@@ -1,6 +1,6 @@
 [package]
 name = "fasb"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["drwadu"]
 description = "fasb - faceted answer set browser"
@@ -13,7 +13,6 @@ regex = "1"
 savan = "0.3.0"
 
 [features]
-verbose = []
 interpreter = []
 
 [[bin]]

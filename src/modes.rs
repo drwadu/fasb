@@ -2,6 +2,7 @@ use savan::nav::{
     weights::{count, Weight},
     Navigator,
 };
+use std::fmt;
 
 pub fn propose_next_step<T>(
     mode: &mut impl Step<T>,
@@ -50,6 +51,26 @@ impl Mode<Option<usize>> {
             }
             Self::MinWeightedAnswerSetCounting(_) => {
                 *self = Self::MinWeightedAnswerSetCounting(with)
+            }
+        }
+    }
+}
+impl fmt::Display for Mode<Option<usize>> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::GoalOriented(_) => write!(f, "goal oriented (go)"),
+            Self::MaxWeightedFacetCounting(_) => {
+                write!(f, "strictly goal oriented mode counting facets (max#f)")
+            }
+            Self::MinWeightedFacetCounting(_) => write!(f, "explore mode counting facets (min#f)"),
+            Self::MaxWeightedAnswerSetCounting(_) => {
+                write!(
+                    f,
+                    "strictly goal oriented mode counting answer sets (max#as)"
+                )
+            }
+            Self::MinWeightedAnswerSetCounting(_) => {
+                write!(f, "explore mode counting answer sets (min#as)")
             }
         }
     }
