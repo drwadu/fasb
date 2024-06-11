@@ -21,4 +21,4 @@ jobs:
     - name: build release
       run: cargo build --release --verbose
     - name: build release
-      run: cargo build --release --verbose --features "verbose interpreter"
+      run: cargo build --release --verbose --features "interpreter"

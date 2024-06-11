@@ -14,8 +14,7 @@ More on representative answer sets can be found in https://ebooks.iospress.nl/do
 fasb as a REPL:
 ```
 $ fasb program.lp 0
-fasb v0.1.0
-42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
+fasb v0.1.2
 :: ! 2         -- enumerate up to 2 answer sets
 solution 1:
 a e
@@ -44,34 +43,7 @@ found 1
 :: --          -- clear route
 :: #!          -- query answer set count
 3
-:: L+ {p;q;r}. -- add rule
-:: L
-a;b.
-c;d :- b.
-e.
-
-{p;q;r}.
-:: A           -- display atoms  
-a c d p q b e r
-:: ?           -- display facets
-b q a c p r d
-:: #!
-24
-:: #??         -- query weights based on facet counting
-0.2857 10 b
-0.5714 6 ~b
-0.1429 12 q
-0.1429 12 ~q
-0.5714 6 a
-0.2857 10 ~a
-0.1429 12 p
-0.1429 12 ~p
-0.5714 6 d
-0.1429 12 ~d
-0.5714 6 c
-0.1429 12 ~c
-0.1429 12 r
-0.1429 12 ~r
+:: > a|b&c|d     -- declare cnf query: (a or b) and (c or d)
 ```
 fasb as an interpreter:
 ```
@@ -81,8 +53,7 @@ $ cat script.fsb
 \ != #f 0 | $$ . ! 2 -- while condition | command . command
 @                    -- display route                  
 $ fasb program.lp 0 srcipt.fsb
-fasb v0.1.0
-42930d520670354cfb84ded47e54142559c70e8cd6b36d6eb2b1a24433adc78f
+fasb v0.1.2
 :: ! 1
 solution 1:
 a e
@@ -124,8 +95,11 @@ The designated syntax for regular expressions (regex) can be found [here](https:
    * #f ... facet count
    * #r ... size of current route 
 * `+ args` ... activate args=[whitespace seperated facets]         
-  * facet=[p|~p] 
+  * facet=[a|~a] 
    * e.g.: activate +a and -b: `+ a ~b`         
+* `> query` ... declare cnf with `|`-seperated literals and `&`-seperated clauses          
+  * literal=[l|~l] 
+   * e.g.: `> a|~b&~a|b`         
  * `-` ... deactivate previously activated facet                   
 * `--` ... deactivate all facets
 * `? regex` ... display current facets matching regex
@@ -138,17 +112,12 @@ The designated syntax for regular expressions (regex) can be found [here](https:
   * *#f ... facet counting 
 * `! n` ... enumerate n answer sets; if no n is provided, then all answer sets will be printed
 * `:! regex` ... print representative answer sets regarding target atoms among facet-inducing atoms that match regex
-* `:!v regex` ... print stats and representative answer sets regarding target atoms among facet-inducing atoms that match regex
-*  `$ regex` ... query proposed next step in selected mode among facets matching regex                          
 * `#?` ... query facet count
 * `#!` ... query answer set count 
-* `$$ regex` ... perform next step in selected mode among facets matching regex                          
 * `#?? regex` ... query facet counts (weights) under each facets matching regex
 * `#!! regex` ... query answer set counts (weights) under each facets matching regex
-* `L+ rule` ... add rule; no whitespaces in rule permitted & use "~" instead of "not " for negation
-* `L- rule` ... remove rule
-* `L` ... display underlying program
-* `A` ... display atoms (herbrand base)
-* `AA atom` ... check whether atom belongs to herbrand base
+* `:src` ... display underlying program
+* `:atoms` ... display atoms (herbrand base)
+* `:isatom atom` ... check whether atom belongs to herbrand base
 * `man` ... display brief manual
 * `:q` ... exit fasb  
