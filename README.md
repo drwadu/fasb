@@ -4,7 +4,11 @@
 # fasb
 Implementation of the **f**aceted **a**nswer **s**et **b**rowser, introduced in https://doi.org/10.1609/aaai.v36i5.20506.
 
-fasb is a REPL system implemented on top of the [clingo](https://github.com/potassco/clingo) solver. It enables answer set navigation alongside quantitative reasoning.
+fasb is a REPL system implemented on top of the [clingo](https://github.com/potassco/clingo) solver. 
+It enables answer set navigation alongside quantitative reasoning.
+
+fasb also implements a basic method for compressing a huge amount of answer sets into representative ones. 
+More on representative answer sets can be found in https://ebooks.iospress.nl/doi/10.3233/FAIA230280.
 
 ## quickstart
 fasb as a REPL:
@@ -132,16 +136,19 @@ The designated syntax for regular expressions (regex) can be found [here](https:
   * max* ... strictly goal-oriented 
   * *#a ... answer set counting 
   * *#f ... facet counting 
+* `! n` ... enumerate n answer sets; if no n is provided, then all answer sets will be printed
+* `:! regex` ... print representative answer sets regarding target atoms among facet-inducing atoms that match regex
+* `:!v regex` ... print stats and representative answer sets regarding target atoms among facet-inducing atoms that match regex
 *  `$ regex` ... query proposed next step in selected mode among facets matching regex                          
 * `#?` ... query facet count
 * `#!` ... query answer set count 
 * `$$ regex` ... perform next step in selected mode among facets matching regex                          
 * `#?? regex` ... query facet counts (weights) under each facets matching regex
 * `#!! regex` ... query answer set counts (weights) under each facets matching regex
-* `L+ rule` ... add rule (no whitespaces in rule permitted)
+* `L+ rule` ... add rule; no whitespaces in rule permitted & use "~" instead of "not " for negation
 * `L- rule` ... remove rule
 * `L` ... display underlying program
 * `A` ... display atoms (herbrand base)
 * `AA atom` ... check whether atom belongs to herbrand base
 * `man` ... display brief manual
-* `:q` ... exit fasb 
+* `:q` ... exit fasb  

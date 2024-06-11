@@ -5,12 +5,10 @@ use savan::lex;
 use savan::nav::{
     errors::{NavigatorError, Result},
     facets::Facets,
+    soe::Collect,
     weights::{count, Weight},
     Navigator,
 };
-
-#[cfg(feature = "verbose")]
-use std::time::Instant;
 
 pub trait Evaluate<T>
 where
@@ -22,6 +20,7 @@ where
         nav: &mut Navigator,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
+        ctx: &mut Vec<String>,
     ) -> Result<()>;
 }
 impl Evaluate<Option<usize>> for Mode<Option<usize>> {
@@ -31,15 +30,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         nav: &mut Navigator,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
+        ctx: &mut Vec<String>,
     ) -> Result<()> {
-        let mut split_expr = expr.as_str().split(" ");
+        let mut split_expr = expr.as_str().split_whitespace();
+
         match split_expr.next() {
             Some(ACTIVATE_FACETS) => {
-                #[cfg(feature = "verbose")]
-                println!("% activation started");
-                #[cfg(feature = "verbose")]
-                let start = Instant::now();
-
                 split_expr.for_each(|f| {
                     route.push(f.to_owned());
                 });
@@ -49,16 +45,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .iter()
                     .map(|f| lex::repr(*f))
                     .collect();
-
-                #[cfg(feature = "verbose")]
-                println!("% activation elapsed: {:?}", start.elapsed());
             }
             Some(ENUMERATE_SOLUTIONS) => {
-                #[cfg(feature = "verbose")]
-                println!("% enumeration started");
-                #[cfg(feature = "verbose")]
-                let start = Instant::now();
-
                 let n = nav.enumerate_solutions(
                     split_expr
                         .next()
@@ -67,9 +55,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     route.iter().map(|s| s.as_ref()).chain(split_expr),
                 )?;
                 println!("found {:?}", n);
-
-                #[cfg(feature = "verbose")]
-                println!("% enumeration elapsed: {:?}", start.elapsed());
             }
             Some(SHOW_FACETS) => {
                 if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
@@ -132,14 +117,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 println!("{:?}", n)
             }
             Some(ANSWER_SET_COUNTS) => {
-                let mut weight = Weight::AnswerSetCounting;
-                let ovr_count = match self {
-                    Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
-                    Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
-                    _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
-                } as f32;
-
                 if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    let mut weight = Weight::AnswerSetCounting;
+                    let ovr_count = match self {
+                        Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
+                        Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
+                        _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
+                    } as f32;
                     for f in facets.iter().filter(|f| re.is_match(f)) {
                         route.push(f.to_owned());
                         count(&mut weight, nav, route.iter())
@@ -153,6 +137,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                         route.pop();
                     }
                 } else {
+                    let mut weight = Weight::AnswerSetCounting;
+                    let ovr_count = match self {
+                        Self::MaxWeightedAnswerSetCounting(Some(c)) => *c,
+                        Self::MinWeightedAnswerSetCounting(Some(c)) => *c,
+                        _ => count(&mut weight, nav, route.iter()).ok_or(NavigatorError::None)?,
+                    } as f32;
                     for f in facets.iter() {
                         route.push(f.to_owned());
                         count(&mut weight, nav, route.iter())
@@ -168,6 +158,10 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 }
             }
             Some(SHOW_ROUTE) => {
+                if !ctx.is_empty() {
+                    ctx.first().map(|f| println!("{f}"));
+                }
+
                 route.iter().for_each(|f| print!("{f} "));
                 println!();
             }
@@ -189,6 +183,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .map(|f| lex::repr(*f))
                     .collect();
             }
+            Some(DISPLAY_MODE) => println!("{}", self),
             Some(CHANGE_MODE) => match split_expr.next() {
                 Some("min#f") => {
                     *self = Mode::MinWeightedFacetCounting(
@@ -232,7 +227,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 }
                 _ => println!("error: specify mode among {{{{min,max}}#{{f,a,s}}, go}}"),
             },
-
             Some(PROPOSE_STEP) => {
                 let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
@@ -259,11 +253,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 } else {
                     facets.to_vec()
                 };
-                #[cfg(feature = "verbose")]
-                println!("% performing step started");
-                #[cfg(feature = "verbose")]
-                let start = Instant::now();
-
                 let ovr_count = match self {
                     Self::MaxWeightedFacetCounting(Some(c)) => *c,
                     Self::MinWeightedFacetCounting(Some(c)) => *c,
@@ -302,9 +291,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     }
                     _ => println!("noop"),
                 }
-
-                #[cfg(feature = "verbose")]
-                eprintln!("% performing step elapsed: {:?}", start.elapsed());
             }
             Some(QUIT) => std::process::exit(0),
             Some("man") => crate::config::manual(),
@@ -333,7 +319,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() != x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -346,7 +338,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() != x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -365,7 +363,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() > x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -378,7 +382,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() > x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -397,7 +407,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() >= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -410,7 +426,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() >= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -429,7 +451,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() < x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -442,7 +470,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() < x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -461,7 +495,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && 2 * facets.len() <= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -474,7 +514,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             Some(x) => {
                                 while !facets.is_empty() && route.len() <= x {
                                     for cmd in &inst {
-                                        self.command(cmd.trim().to_owned(), nav, facets, route)?
+                                        self.command(
+                                            cmd.trim().to_owned(),
+                                            nav,
+                                            facets,
+                                            route,
+                                            ctx,
+                                        )?
                                     }
                                 }
                             }
@@ -507,27 +553,50 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             Some(SHOW_PROGRAM) => {
                 println!("{}", nav.program());
             }
-            Some(ADD_RULE) => {
-                match split_expr.next().map(|r| nav.add_rule(r)) {
-                    Some(Ok(_)) => (),
-                    Some(Err(e)) => {
-                        println!("{e} error: provide rule (with no whitespaces) to add")
+            Some(SOE) => {
+                let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    facets
+                        .iter()
+                        .filter(|f| re.is_match(f))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    facets.to_vec()
+                };
+                nav.sieve(&fs)?;
+            }
+            Some(CONTEXT) => {
+                ctx.into_iter()
+                    .skip(1)
+                    .for_each(|r| unsafe { nav.remove_rule(r).unwrap_unchecked() });
+
+                ctx.clear();
+
+                match split_expr.next() {
+                    Some(cnf) => {
+                        ctx.push(cnf.to_string());
+
+                        let clauses = cnf.split("&");
+                        for clause in clauses {
+                            let body = clause
+                                .split("|")
+                                .map(|lit| match lit.starts_with('~') {
+                                    true => lit[1..].to_owned(),
+                                    _ => format!("not {lit}"),
+                                })
+                                .collect::<Vec<_>>()
+                                .join(",");
+
+                            let ic = format!(":- {body}. ");
+
+                            ctx.push(ic.clone());
+
+                            nav.add_rule(ic)?;
+                        }
                     }
                     _ => (),
                 };
-                *facets = nav
-                    .facet_inducing_atoms(route.iter())
-                    .ok_or(NavigatorError::None)?
-                    .iter()
-                    .map(|f| lex::repr(*f))
-                    .collect();
-            }
-            Some(DELETE_RULE) => {
-                match split_expr.next().map(|r| nav.remove_rule(r)) {
-                    Some(Ok(_)) => (),
-                    Some(Err(e)) => println!("{e} error: provide rule to remove"),
-                    _ => (),
-                };
+
                 *facets = nav
                     .facet_inducing_atoms(route.iter())
                     .ok_or(NavigatorError::None)?
