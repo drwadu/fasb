@@ -10,6 +10,7 @@ use std::path::Path;
 mod config;
 mod interpreter;
 mod modes;
+mod significance;
 #[cfg(feature = "interpreter")]
 use crate::config::PROMPT;
 use crate::interpreter::Evaluate;

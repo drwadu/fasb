@@ -18,6 +18,7 @@ pub const SHOW_ATOMS: &'static str = ":atoms";
 pub const IS_ATOM: &'static str = ":isatom";
 pub const SOE: &'static str = ":soe";
 pub const CONTEXT: &'static str = ">";
+pub const SIGNIFICANCE: &'static str = "%";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {

@@ -1,5 +1,6 @@
 use crate::config::*;
 use crate::modes::{perform_next_step, propose_next_step, Mode};
+use crate::significance::Significance;
 use regex::Regex;
 use savan::lex;
 use savan::nav::{
@@ -603,6 +604,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .iter()
                     .map(|f| lex::repr(*f))
                     .collect();
+            }
+            Some(SIGNIFICANCE) => {
+                let y = split_expr.next().unwrap();
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    nav.significance(&route, y.to_owned(), &facets, re)
+                }
             }
             _ => println!("noop [unknown command]"),
         }
