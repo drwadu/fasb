@@ -7,8 +7,27 @@ Implementation of the **f**aceted **a**nswer **s**et **b**rowser, introduced in 
 fasb is a REPL system implemented on top of the [clingo](https://github.com/potassco/clingo) solver. 
 It enables answer set navigation alongside quantitative reasoning.
 
-fasb also implements a basic method for compressing a huge amount of answer sets into representative ones. 
-More on representative answer sets can be found in https://ebooks.iospress.nl/doi/10.3233/FAIA230280.
+## fundamental concepts 
+**weight of facet**
+
+The weight of a facet is the amount by which a specified quantity changes due
+to activating this facet. More on weights of facets can be found in
+https://doi.org/10.1609/aaai.v36i5.20506.
+
+**significance of a facet for a literal**
+
+To ask how significant a facet `f` is for a literal `l`, conceptionally,
+corresponds to asking how much information we gain (dually, uncertainty we
+reduce) among answer sets that satisfy `l` when filtering those answer sets
+that satisfy `l` and `f`. More on the notion of significance can be found in
+_Navigating and Querying Answer Sets: How Hard Is It Really and Why?_ (to appear).
+
+**representative answer sets**
+
+fasb also implements a basic method for compressing a huge amount of answer
+sets into representative ones. More on representative answer sets can be found
+in https://ebooks.iospress.nl/doi/10.3233/FAIA230280.
+
 
 ## quickstart
 fasb as a REPL:
@@ -24,7 +43,7 @@ found 2
 :: ?           -- query facets
 b d c a
 :: #!!         -- query weights based on answer set counting
-0.3333 2 b     -- [reduces # by] [remaining #] [facet]
+0.3333 2 b     -- [reduces answer set count by] [remaining answer sets] [facet]
 0.6667 1 d
 0.3333 2 ~d
 0.6667 1 c
@@ -44,6 +63,14 @@ found 1
 :: #!          -- query answer set count
 3
 :: > a|b&c|d   -- declare cnf query: (a or b) and (c or d)
+:: >           -- clear query
+:: % e ^*      -- compute significance of each current facet for literal e
+ inc   exc
+1.000 0.250 d
+1.000 0.500 a
+1.000 0.250 c
+0.500 1.000 b
+:: :q          --  quit
 ```
 fasb as an interpreter:
 ```
@@ -91,16 +118,16 @@ The designated syntax for regular expressions (regex) can be found [here](https:
 
 ### commands
 * `\ condition | instructions` ... loop '.' seperated instructions while condition={!=,<,<=,>,>=}\s^\d+$\s{#a,#f,#r} where
-   * #a ... answer set count
-   * #f ... facet count
-   * #r ... size of current route 
+  * #a ... answer set count
+  * #f ... facet count
+  * #r ... size of current route 
 * `+ args` ... activate args=[whitespace seperated facets]         
   * facet=[a|~a] 
-   * e.g.: activate +a and -b: `+ a ~b`         
+  * e.g.: activate +a and -b: `+ a ~b`         
 * `> query` ... declare cnf with `|`-seperated literals and `&`-seperated clauses          
   * literal=[l|~l] 
-   * e.g.: `> a|~b&~a|b`         
- * `-` ... deactivate previously activated facet                   
+  * e.g.: `> a|~b&~a|b`         
+* `-` ... deactivate previously activated facet                   
 * `--` ... deactivate all facets
 * `? regex` ... display current facets matching regex
 * `@` ... query current route
@@ -111,11 +138,13 @@ The designated syntax for regular expressions (regex) can be found [here](https:
   * *#a ... answer set counting 
   * *#f ... facet counting 
 * `! n` ... enumerate n answer sets; if no n is provided, then all answer sets will be printed
+* `% literal facets` ... output significance of facets=[regex] for some literal=[a or ~a]
 * `:! regex` ... print representative answer sets regarding target atoms among facet-inducing atoms that match regex
 * `#?` ... query facet count
 * `#!` ... query answer set count 
 * `#?? regex` ... query facet counts (weights) under each facets matching regex
 * `#!! regex` ... query answer set counts (weights) under each facets matching regex
+* `:soe targets` ... enumerate representative answer sets regarding targets=[regex] filtered from current facets
 * `:src` ... display underlying program
 * `:atoms` ... display atoms (herbrand base)
 * `:isatom atom` ... check whether atom belongs to herbrand base

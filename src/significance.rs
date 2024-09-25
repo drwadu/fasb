@@ -27,17 +27,17 @@ impl Significance for Navigator {
 
         let fc = count(&mut Weight::FacetCounting, self, ctx.iter()).unwrap() as f32;
 
-        println!(" inc   exc");
         if fc == 0.0 {
             if self
                 .enumerate_solutions_quietly(Some(1), ctx.iter())
                 .is_ok_and(|n| n < 1)
             {
-                println!("INFO: no facets, no answer set");
+                println!("no facets, no answer set");
             } else {
-                println!("INFO: no facets, unique answer set");
+                println!("no facets, unique answer set");
             }
         } else {
+            println!(" inc   exc");
             for a in facet_inducing_atoms.iter().filter(|f| re.is_match(f)) {
                 let fc_a = unsafe {
                     count(
@@ -47,19 +47,6 @@ impl Significance for Navigator {
                     )
                     .unwrap_unchecked() as f32
                 };
-
-                if fc_a == 0.0 {
-                    if self
-                        .enumerate_solutions_quietly(Some(1), ctx.iter().chain([a.clone()].iter()))
-                        .is_ok_and(|n| n < 1)
-                    {
-                        println!("0.000 1.000 {a}");
-                    } else {
-                        println!("1.000 0.000 {a}");
-                    }
-
-                    continue;
-                }
 
                 let fc_a_exc = unsafe {
                     count(

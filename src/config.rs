@@ -23,31 +23,26 @@ pub const SIGNIFICANCE: &'static str = "%";
 pub const QUIT: &'static str = ":q";
 
 pub(crate) fn manual() {
-    println!("display facet-inducing atoms                                    ->  {SHOW_FACETS}");
-    println!("display route                                                   ->  {SHOW_ROUTE}");
-    println!("enumerate n=[int] answer sets                                   ->  {ENUMERATE_SOLUTIONS} n");
-    println!("activate facets=[whitespace seperated literals, e.g., a ~b]     ->  {ACTIVATE_FACETS} facets ");
-    println!("deactivate previous facet                                       ->  {DEL_LAST}");
-    println!("deactivate all facets                                           ->  {CLEAR_ROUTE}");
-    println!("declare cnf=[e.g., a|~b&c|d] context/query                      ->  {CONTEXT}");
-    println!(
-        "select navigation mode=[{{{{min,max}}#{{f,a,s}}, go}}]                ->  {CHANGE_MODE}"
-    );
-    println!("next step in mode                                               ->  {PROPOSE_STEP}");
-    println!("perform next step in mode                                       ->  {TAKE_STEP}");
-    println!("facet count                                                     ->  {FACET_COUNT}");
-    println!("facet counts under each facet                                   ->  {FACET_COUNTS}");
-    println!("significance of facets=[regex] for some facet=[a or ~a]         ->  {SIGNIFICANCE}");
-    println!(
-        "answer set count                                                ->  {ANSWER_SET_COUNT}"
-    );
-    println!(
-        "answer set counts under each facet                              ->  {ANSWER_SET_COUNTS}"
-    );
-    println!("display program                                                 ->  {SHOW_PROGRAM}");
-    println!("display atoms                                                   ->  {SHOW_ATOMS}");
-    println!("atom check                                                      ->  {IS_ATOM}");
-    println!("display navigation mode                                         ->  {DISPLAY_MODE}");
-    println!("quit                                                            ->  {QUIT}");
+    println!("display facet-inducing atoms                                                                 ->  {SHOW_FACETS}");
+    println!("display route                                                                                ->  {SHOW_ROUTE}");
+    println!("enumerate n=[int] answer sets                                                                ->  {ENUMERATE_SOLUTIONS} n");
+    println!("activate facets=[whitespace seperated literals, e.g., a ~b]                                  ->  {ACTIVATE_FACETS} facets ");
+    println!("deactivate previous facet                                                                    ->  {DEL_LAST}");
+    println!("deactivate all facets                                                                        ->  {CLEAR_ROUTE}");
+    println!("declare cnf=[e.g., a|~b&c|d] context/query                                                   ->  {CONTEXT} cnf");
+    println!("select navigation mode=[{{{{min,max}}#{{f,a,s}}, go}}]                                             ->  {CHANGE_MODE} mode");
+    println!("next step in mode                                                                            ->  {PROPOSE_STEP}");
+    println!("perform next step in mode                                                                    ->  {TAKE_STEP}");
+    println!("facet count                                                                                  ->  {FACET_COUNT}");
+    println!("facet counts under each facet                                                                ->  {FACET_COUNTS}");
+    println!("significance of facets=[regex] for some literal=[a or ~a]                                    ->  {SIGNIFICANCE} literal facets");
+    println!("answer set count                                                                             ->  {ANSWER_SET_COUNT}");
+    println!("answer set counts under each facet                                                           ->  {ANSWER_SET_COUNTS}");
+    println!("enumerate representative answer sets regarding targets=[regex] filtered from current facets  ->  {SOE} targets");
+    println!("display program                                                                              ->  {SHOW_PROGRAM}");
+    println!("display atoms                                                                                ->  {SHOW_ATOMS}");
+    println!("atom check                                                                                   ->  {IS_ATOM}");
+    println!("display navigation mode                                                                      ->  {DISPLAY_MODE}");
+    println!("quit                                                                                         ->  {QUIT}");
     println!("see documentation for more details");
 }
