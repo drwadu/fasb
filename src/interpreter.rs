@@ -611,6 +611,17 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     nav.significance(&route, y.to_owned(), &facets, re)
                 }
             }
+            Some(ENUMERATE_PROJECTED_SOLUTIONS) => {
+                let n = nav.enumerate_projected_solutions(
+                    split_expr
+                        .next()
+                        .and_then(|n| n.parse::<usize>().ok())
+                        .take(),
+                    route.iter().map(|s| s.as_ref()).chain(split_expr),
+                    facets.clone(),
+                )?;
+                println!("found {:?}", n);
+            }
             _ => println!("noop [unknown command]"),
         }
 
