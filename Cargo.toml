@@ -10,7 +10,7 @@ license = "MIT"
 [dependencies]
 rustyline = "11.0.0"
 regex = "1"
-savan = "0.3.0"
+savan = "0.3.1"
 
 [features]
 interpreter = []
