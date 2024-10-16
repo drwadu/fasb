@@ -1,6 +1,6 @@
 [package]
 name = "fasb"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 authors = ["drwadu"]
 description = "fasb - faceted answer set browser"
@@ -19,3 +19,8 @@ interpreter = []
 name = "fasb"
 path = "src/main.rs"
 edition = "2021"   
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
