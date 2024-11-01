@@ -1,5 +1,6 @@
 pub const PROMPT: &'static str = ":: ";
 pub const ACTIVATE_FACETS: &'static str = "+";
+pub const ACTIVATE_FACETS_LT: &'static str = "+'";
 pub const SHOW_FACETS: &'static str = "?";
 pub const FACET_COUNT: &'static str = "#?";
 pub const FACET_COUNTS: &'static str = "#??";
@@ -26,7 +27,8 @@ pub(crate) fn manual() {
     println!("display facet-inducing atoms                                                                 ->  {SHOW_FACETS}");
     println!("display route                                                                                ->  {SHOW_ROUTE}");
     println!("enumerate n=[int] answer sets                                                                ->  {ENUMERATE_SOLUTIONS} n");
-    println!("activate facets=[whitespace seperated literals, e.g., a ~b]                                  ->  {ACTIVATE_FACETS} facets ");
+    println!("activate facets=[whitespace seperated literals, e.g., a ~b]                                  ->  {ACTIVATE_FACETS} facets"); 
+    println!("activate facets=[whitespace seperated literals, e.g., a ~b] and display consequences         ->  {ACTIVATE_FACETS_LT} facets");
     println!("deactivate previous facet                                                                    ->  {DEL_LAST}");
     println!("deactivate all facets                                                                        ->  {CLEAR_ROUTE}");
     println!("declare cnf=[e.g., a|~b&c|d] context/query                                                   ->  {CONTEXT} cnf");

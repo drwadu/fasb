@@ -2,7 +2,6 @@
 use rustyline::error::ReadlineError;
 #[cfg(not(feature = "interpreter"))]
 use rustyline::DefaultEditor;
-use savan::lex;
 use savan::nav::errors::{NavigatorError, Result};
 use savan::nav::{facets::Facets, Navigator};
 use std::fs::read_to_string;
@@ -34,14 +33,12 @@ fn main() -> Result<()> {
 
     let mut nav = Navigator::new(lp, args)?;
     let mut mode = Mode::GoalOriented(None::<usize>);
+    let atoms = nav.atoms().collect::<Vec<String>>();
     let mut route = Vec::new();
     let mut ctx = Vec::new();
     let mut facets = nav
-        .facet_inducing_atoms(route.iter())
-        .ok_or(NavigatorError::None)?
-        .iter()
-        .map(|f| lex::repr(*f))
-        .collect::<Vec<_>>();
+        .learned_that(&atoms, &route)
+        .ok_or(NavigatorError::None)?;
 
     let mut rl = DefaultEditor::new().map_err(|_| NavigatorError::None)?;
     loop {
