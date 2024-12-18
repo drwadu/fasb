@@ -2,6 +2,7 @@ use savan::nav::{
     weights::{count, Weight},
     Navigator,
 };
+use std::fmt;
 
 pub fn propose_next_step<T>(
     mode: &mut impl Step<T>,
@@ -54,6 +55,26 @@ impl Mode<Option<usize>> {
         }
     }
 }
+impl fmt::Display for Mode<Option<usize>> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::GoalOriented(_) => write!(f, "goal oriented (go)"),
+            Self::MaxWeightedFacetCounting(_) => {
+                write!(f, "strictly goal oriented mode counting facets (max#f)")
+            }
+            Self::MinWeightedFacetCounting(_) => write!(f, "explore mode counting facets (min#f)"),
+            Self::MaxWeightedAnswerSetCounting(_) => {
+                write!(
+                    f,
+                    "strictly goal oriented mode counting answer sets (max#as)"
+                )
+            }
+            Self::MinWeightedAnswerSetCounting(_) => {
+                write!(f, "explore mode counting answer sets (min#as)")
+            }
+        }
+    }
+}
 
 pub trait Step<T>
 where
@@ -88,8 +109,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(facet.clone());
                     counted = count(&mut Weight::FacetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x <= y) {
@@ -102,8 +121,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(exc_facet.clone());
                     counted = count(&mut Weight::FacetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((exc_facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x <= y) {
@@ -124,8 +141,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(exc_facet.clone());
                     counted = count(&mut Weight::FacetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((exc_facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x >= y) {
@@ -137,8 +152,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(facet.clone());
                     counted = count(&mut Weight::FacetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x >= y) {
@@ -159,8 +172,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(facet.clone());
                     counted = count(&mut Weight::AnswerSetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x <= y) {
@@ -171,8 +182,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
 
                     counted = prev_count.zip(counted).map(|(x, y)| x - y);
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((format!("~{facet}"), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x <= y) {
@@ -192,8 +201,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
                     active.push(exc_facet.clone());
                     counted = count(&mut Weight::AnswerSetCounting, nav, active.iter());
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((exc_facet.to_string(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x >= y) {
@@ -204,8 +211,6 @@ impl Step<Option<usize>> for Mode<Option<usize>> {
 
                     counted = prev_count.zip(counted).map(|(x, y)| x - y);
                     if counted == bound {
-                        #[cfg(feature = "verbose")]
-                        print!("*");
                         return Some((facet.to_owned(), bound));
                     }
                     if counted.zip(curr).is_some_and(|(x, y)| x >= y) {

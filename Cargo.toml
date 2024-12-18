@@ -1,6 +1,6 @@
 [package]
 name = "fasb"
-version = "0.1.1"
+version = "0.2.4"
 edition = "2021"
 authors = ["drwadu"]
 description = "fasb - faceted answer set browser"
@@ -10,13 +10,17 @@ license = "MIT"
 [dependencies]
 rustyline = "11.0.0"
 regex = "1"
-savan = { git = "https://github.com/drwadu/savan.git", branch = "feature/soe" }
+savan = "0.3.2"
 
 [features]
-verbose = []
 interpreter = []
 
 [[bin]]
 name = "fasb"
 path = "src/main.rs"
 edition = "2021"   
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
