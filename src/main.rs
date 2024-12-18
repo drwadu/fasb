@@ -4,6 +4,7 @@ use rustyline::error::ReadlineError;
 use rustyline::DefaultEditor;
 use savan::nav::errors::{NavigatorError, Result};
 use savan::nav::{facets::Facets, Navigator};
+use savan::lex;
 use std::fs::read_to_string;
 use std::path::Path;
 mod config;
