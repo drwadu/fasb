@@ -47,6 +47,14 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .map(|f| lex::repr(*f))
                     .collect();
             }
+            Some(ACTIVATE_FACETS_LT) => {
+                split_expr.for_each(|f| {
+                    route.push(f.to_owned());
+                });
+                *facets = nav
+                    .learned_that(facets, route)
+                    .ok_or(NavigatorError::None)?;
+            }
             Some(ENUMERATE_SOLUTIONS) => {
                 let n = nav.enumerate_solutions(
                     split_expr
