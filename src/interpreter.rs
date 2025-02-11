@@ -1,4 +1,5 @@
 use crate::config::*;
+use crate::is_facet;
 use crate::modes::{perform_next_step, propose_next_step, Mode};
 use crate::significance::Significance;
 use regex::Regex;
@@ -19,6 +20,8 @@ where
         &mut self,
         expr: String,
         nav: &mut Navigator,
+        _nav: &mut Navigator,
+        atoms: &mut Vec<String>,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
         ctx: &mut Vec<String>,
@@ -29,6 +32,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         &mut self,
         expr: String,
         nav: &mut Navigator,
+        _nav: &mut Navigator,
+        atoms: &mut Vec<String>,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
         ctx: &mut Vec<String>,
@@ -54,6 +59,60 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 *facets = nav
                     .learned_that(facets, route)
                     .ok_or(NavigatorError::None)?;
+            }
+            Some(IS_FACET_R) => {
+                let mut k = 0;
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    for a in atoms.iter().filter(|a| re.is_match(a)) {
+                        if is_facet::is_facet_r(_nav, a.to_string()) {
+                            k += 2;
+                            print!("{} ", a)
+                        }
+                    }
+                } else {
+                    for a in atoms.iter() {
+                        if is_facet::is_facet_r(_nav, a.to_string()) {
+                            k += 2;
+                            print!("{} ", a)
+                        }
+                    }
+                }
+                println!("\n{k}")
+            }
+            Some(IS_FACET) => {
+                let mut k = 0;
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    for a in atoms.iter().filter(|a| re.is_match(a)) {
+                        match is_facet::is_facet(nav, a.to_string()) {
+                            is_facet::State::True(a) => {
+                                println!("{}", T.replace("[T]", &a))
+                            }
+                            is_facet::State::False(a) => {
+                                println!("{}", F.replace("[F]", &a))
+                            }
+                            _ => {
+                                k += 2;
+                                println!("{}", U.replace("[U]", &a))
+                            }
+                        }
+                    }
+                } else {
+                    for a in atoms.iter() {
+                        match is_facet::is_facet(nav, a.to_string()) {
+                            is_facet::State::True(a) => {
+                                println!("{}", T.replace("[T]", &a))
+                            }
+                            is_facet::State::False(a) => {
+                                println!("{}", F.replace("[F]", &a))
+                            }
+                            _ => {
+                                k += 2;
+                                println!("{}", U.replace("[U]", &a))
+                            }
+                        }
+                    }
+                }
+                println!("\n{k}")
             }
             Some(ENUMERATE_SOLUTIONS) => {
                 let n = nav.enumerate_solutions(
@@ -331,6 +390,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -350,6 +411,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -375,6 +438,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -394,6 +459,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -419,6 +486,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -438,6 +507,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -463,6 +534,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -482,6 +555,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -507,6 +582,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -526,6 +603,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
+                                            _nav,
+                                            atoms,
                                             facets,
                                             route,
                                             ctx,
@@ -558,6 +637,21 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     print!("{a} ");
                 });
                 println!();
+            }
+            Some(FILTER_ATOMS) => {
+                let mut k = 0;
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
+                        k += 1;
+                        print!("{} ", f)
+                    });
+                } else {
+                    atoms.iter().for_each(|f| {
+                        k += 1;
+                        print!("{} ", f)
+                    });
+                }
+                println!("\n{k}")
             }
             Some(SHOW_PROGRAM) => {
                 println!("{}", nav.program());

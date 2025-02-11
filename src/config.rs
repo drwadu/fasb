@@ -17,11 +17,16 @@ pub const PROPOSE_STEP: &'static str = "$";
 pub const TAKE_STEP: &'static str = "$$";
 pub const SHOW_PROGRAM: &'static str = ":src";
 pub const SHOW_ATOMS: &'static str = ":atoms";
+pub const FILTER_ATOMS: &'static str = ":filter_atoms";
 pub const IS_ATOM: &'static str = ":isatom";
 pub const SOE: &'static str = ":soe";
 pub const CONTEXT: &'static str = ">";
 pub const SIGNIFICANCE: &'static str = "%";
+pub const IS_FACET: &'static str = ":?";
+pub const IS_FACET_R: &'static str = ":?r";
 pub const QUIT: &'static str = ":q";
+
+pub const FILTER_KEYWORD: &'static str = "%filter ";
 
 pub(crate) fn manual() {
     println!("display facet-inducing atoms                                                                 ->  {SHOW_FACETS}");
@@ -31,6 +36,8 @@ pub(crate) fn manual() {
     println!("activate facets=[whitespace seperated literals, e.g., a ~b] and display consequences         ->  {ACTIVATE_FACETS_LT} facets");
     println!("deactivate previous facet                                                                    ->  {DEL_LAST}");
     println!("deactivate all facets                                                                        ->  {CLEAR_ROUTE}");
+    println!("check whether regex-matched atoms are facets                                                 ->  {IS_FACET} regex"); 
+    println!("check whether regex-matched atoms are facets with one consistency check                      ->  {IS_FACET_R} regex"); 
     println!("declare cnf=[e.g., a|~b&c|d] context/query                                                   ->  {CONTEXT} cnf");
     println!("select navigation mode=[{{{{min,max}}#{{f,a,s}}, go}}]                                             ->  {CHANGE_MODE} mode");
     println!("next step in mode                                                                            ->  {PROPOSE_STEP}");
@@ -43,8 +50,13 @@ pub(crate) fn manual() {
     println!("enumerate representative answer sets regarding targets=[regex] filtered from current facets  ->  {SOE} targets");
     println!("display program                                                                              ->  {SHOW_PROGRAM}");
     println!("display atoms                                                                                ->  {SHOW_ATOMS}");
+    println!("display regex-matched atoms                                                                  ->  {FILTER_ATOMS} regex");
     println!("atom check                                                                                   ->  {IS_ATOM}");
     println!("display navigation mode                                                                      ->  {DISPLAY_MODE}");
     println!("quit                                                                                         ->  {QUIT}");
     println!("see documentation for more details");
 }
+
+pub const T: &'static str = "\x1b[0;30;42m[T]\x1b[0m";
+pub const U: &'static str = "\x1b[0;30;44m[U]\x1b[0m";
+pub const F: &'static str = "\x1b[0;30;41m[F]\x1b[0m";
