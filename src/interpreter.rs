@@ -900,6 +900,42 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     nav.significance(&route, y.to_owned(), &facets, re)
                 }
             }
+            Some(SIGNIFICANCE_PROJECTING) => {
+                let y = split_expr.next().unwrap();
+
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms
+                        .iter()
+                        .filter(|a| re.is_match(a))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    atoms.iter().cloned().collect::<Vec<_>>()
+                };
+
+                let mut or = ":-".to_owned();
+                xs.iter().for_each(|a| {
+                    or = format!("{or} not {a},");
+                });
+                or = format!("{}.", &or[..or.len() - 1]);
+
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+
+                let s = format!("{shows}\n{or}");
+
+                nav.add_rule(s.clone())?;
+
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    nav.significance_projecting(&route, y.to_owned(), &facets, re)
+                }
+
+                nav.remove_rule(s.clone())?;
+            }
             Some(ENUMERATE_PROJECTED_SOLUTIONS) => {
                 let n = nav.enumerate_projected_solutions(
                     split_expr
