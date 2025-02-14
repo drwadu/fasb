@@ -20,7 +20,7 @@ To ask how significant a facet `f` is for a literal `l`, conceptionally,
 corresponds to asking how much information we gain (dually, uncertainty we
 reduce) among answer sets that satisfy `l` when filtering those answer sets
 that satisfy `l` and `f`. More on the notion of significance can be found in
-_Navigating and Querying Answer Sets: How Hard Is It Really and Why?_ (to appear).
+https://doi.org/10.24963/kr.2024/60.
 
 **representative answer sets**
 
@@ -112,41 +112,17 @@ b c
 ## usage
 `fasb program [clingo flags] [script]`
 
-Apart from being a REPL system, fasb can also be used as an interpreter of instructions, which will be performed line by line. To use fasb as an interpreter add the feature flag `--feature interpreter` when installing or building. When using the interpreter, provide a script.
+Apart from being a REPL system, fasb can also be used as an interpreter of
+instructions, which will be performed line by line. To use fasb as an
+interpreter add the feature flag `--feature interpreter` when installing or
+building. When using the interpreter, provide a script.
 
-The designated syntax for regular expressions (regex) can be found [here](https://docs.rs/regex/latest/regex/).
+The designated syntax for regular expressions (regex) can be found
+[here](https://docs.rs/regex/latest/regex/).
 
 ### commands
-* `\ condition | instructions` ... loop '.' seperated instructions while condition={!=,<,<=,>,>=}\s^\d+$\s{#a,#f,#r} where
-  * #a ... answer set count
-  * #f ... facet count
-  * #r ... size of current route 
-* `+ args` ... activate args=[whitespace seperated facets]         
-  * facet=[a|~a] 
-  * e.g.: activate +a and -b: `+ a ~b`         
-* `> query` ... declare cnf with `|`-seperated literals and `&`-seperated clauses          
-  * literal=[l|~l] 
-  * e.g.: `> a|~b&~a|b`         
-* `-` ... deactivate previously activated facet                   
-* `--` ... deactivate all facets
-* `? regex` ... display current facets matching regex
-* `@` ... query current route
-* `' arg` ... select navigation mode arg=[{min,max}#{a,f}|go] 
-  *  by default goal-oriented (go)
-  * min* ... explore 
-  * max* ... strictly goal-oriented 
-  * *#a ... answer set counting 
-  * *#f ... facet counting 
-* `! n` ... enumerate n answer sets; if no n is provided, then all answer sets will be printed
-* `% literal facets` ... output significance of facets=[regex] for some literal=[a or ~a]
-* `:! regex` ... print representative answer sets regarding target atoms among facet-inducing atoms that match regex
-* `#?` ... query facet count
-* `#!` ... query answer set count 
-* `#?? regex` ... query facet counts (weights) under each facets matching regex
-* `#!! regex` ... query answer set counts (weights) under each facets matching regex
-* `:soe targets` ... enumerate representative answer sets regarding targets=[regex] filtered from current facets
-* `:src` ... display underlying program
-* `:atoms` ... display atoms (herbrand base)
-* `:isatom atom` ... check whether atom belongs to herbrand base
-* `man` ... display brief manual
-* `:q` ... exit fasb  
+Run fasb and type command `man` to see a palette of commands.
+
+### parameters
+- `--f` suppresses facet computation at startup
+- `--l` prints true and false atoms at startup
