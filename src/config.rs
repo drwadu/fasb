@@ -2,8 +2,11 @@ pub const PROMPT: &'static str = ":: ";
 pub const ACTIVATE_FACETS: &'static str = "+";
 pub const ACTIVATE_FACETS_LT: &'static str = "+'";
 pub const SHOW_FACETS: &'static str = "?";
+pub const COMPUTE_FACETS_SU: &'static str = "!?";
+pub const COMPUTE_FACETS: &'static str = "'!?";
 pub const FACET_COUNT: &'static str = "#?";
 pub const FACET_COUNTS: &'static str = "#??";
+pub const FACET_COUNTS_PROJECTING: &'static str = "!#??";
 pub const ANSWER_SET_COUNT: &'static str = "#!";
 pub const ANSWER_SET_COUNTS: &'static str = "#!!";
 pub const ENUMERATE_SOLUTIONS: &'static str = "!";
@@ -36,14 +39,16 @@ pub(crate) fn manual() {
     println!("activate facets=[whitespace seperated literals, e.g., a ~b] and display consequences         ->  {ACTIVATE_FACETS_LT} facets");
     println!("deactivate previous facet                                                                    ->  {DEL_LAST}");
     println!("deactivate all facets                                                                        ->  {CLEAR_ROUTE}");
-    println!("check whether regex-matched atoms are facets                                                 ->  {IS_FACET} regex"); 
-    println!("check whether regex-matched atoms are facets with one consistency check                      ->  {IS_FACET_R} regex"); 
+    //println!("check whether regex-matched atoms are facets                                                 ->  {IS_FACET} regex"); 
+    //println!("check whether regex-matched atoms are facets with one consistency check                      ->  {IS_FACET_R} regex"); 
     println!("declare cnf=[e.g., a|~b&c|d] context/query                                                   ->  {CONTEXT} cnf");
     println!("select navigation mode=[{{{{min,max}}#{{f,a,s}}, go}}]                                             ->  {CHANGE_MODE} mode");
     println!("next step in mode                                                                            ->  {PROPOSE_STEP}");
     println!("perform next step in mode                                                                    ->  {TAKE_STEP}");
+    println!("compute facets among atoms that match targets=[regex]                                        ->  {COMPUTE_FACETS_SU} targets");
     println!("facet count                                                                                  ->  {FACET_COUNT}");
     println!("facet counts under each facet                                                                ->  {FACET_COUNTS}");
+    println!("facet counts under each facet in targets_1=[regex] using projection on targets_2=[regex]     ->  {FACET_COUNTS_PROJECTING} targets_2 targets_1");
     println!("significance of facets=[regex] for some literal=[a or ~a]                                    ->  {SIGNIFICANCE} literal facets");
     println!("answer set count                                                                             ->  {ANSWER_SET_COUNT}");
     println!("answer set counts under each facet                                                           ->  {ANSWER_SET_COUNTS}");
@@ -56,7 +61,3 @@ pub(crate) fn manual() {
     println!("quit                                                                                         ->  {QUIT}");
     println!("see documentation for more details");
 }
-
-pub const T: &'static str = "\x1b[0;30;42m[T]\x1b[0m";
-pub const U: &'static str = "\x1b[0;30;44m[U]\x1b[0m";
-pub const F: &'static str = "\x1b[0;30;41m[F]\x1b[0m";

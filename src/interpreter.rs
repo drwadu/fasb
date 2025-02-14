@@ -2,15 +2,19 @@ use crate::config::*;
 use crate::is_facet;
 use crate::modes::{perform_next_step, propose_next_step, Mode};
 use crate::significance::Significance;
+use indicatif::{ProgressBar, ProgressState, ProgressStyle};
 use regex::Regex;
 use savan::lex;
 use savan::nav::{
     errors::{NavigatorError, Result},
     facets::Facets,
     soe::Collect,
-    weights::{count, Weight},
+    weights::{count, count_projecting, Weight},
     Navigator,
 };
+use std::fmt::Write;
+use std::thread;
+use std::time::Duration;
 
 pub trait Evaluate<T>
 where
@@ -20,7 +24,6 @@ where
         &mut self,
         expr: String,
         nav: &mut Navigator,
-        _nav: &mut Navigator,
         atoms: &mut Vec<String>,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
@@ -32,7 +35,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         &mut self,
         expr: String,
         nav: &mut Navigator,
-        _nav: &mut Navigator,
         atoms: &mut Vec<String>,
         facets: &mut Vec<String>,
         route: &mut Vec<String>,
@@ -57,62 +59,192 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     route.push(f.to_owned());
                 });
                 *facets = nav
-                    .learned_that(facets, route)
+                    .learned_that(facets, route, None)
                     .ok_or(NavigatorError::None)?;
             }
-            Some(IS_FACET_R) => {
-                let mut k = 0;
-                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                    for a in atoms.iter().filter(|a| re.is_match(a)) {
-                        if is_facet::is_facet_r(_nav, a.to_string()) {
-                            k += 2;
-                            print!("{} ", a)
-                        }
-                    }
+            Some(COMPUTE_FACETS) => {
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms
+                        .iter()
+                        .filter(|a| re.is_match(a))
+                        .cloned()
+                        .collect::<Vec<_>>()
                 } else {
-                    for a in atoms.iter() {
-                        if is_facet::is_facet_r(_nav, a.to_string()) {
-                            k += 2;
-                            print!("{} ", a)
-                        }
+                    atoms.iter().cloned().collect::<Vec<_>>()
+                };
+
+                let mut or = ":-".to_owned();
+                xs.iter().for_each(|a| {
+                    or = format!("{or} not {a},");
+                });
+                or = format!("{}.", &or[..or.len() - 1]);
+
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+
+                let s = format!("{shows}\n{or}");
+
+                nav.add_rule(s.clone())?;
+
+                *facets = nav
+                    .facet_inducing_atoms(route.iter())
+                    .ok_or(NavigatorError::None)?
+                    .iter()
+                    .map(|f| lex::repr(*f))
+                    .collect();
+
+                nav.remove_rule(s)?;
+            }
+            Some(COMPUTE_FACETS_SU) => {
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms
+                        .iter()
+                        .filter(|a| re.is_match(a))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    atoms.iter().cloned().collect::<Vec<_>>()
+                };
+
+                let mut or = ":-".to_owned();
+                xs.iter().for_each(|a| {
+                    or = format!("{or} not {a},");
+                });
+                or = format!("{}.", &or[..or.len() - 1]);
+
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+
+                let s = format!("{shows}\n{or}");
+
+                nav.add_rule(s.clone())?;
+
+                *facets = nav
+                    .facet_inducing_atoms_projecting(route.iter())
+                    .ok_or(NavigatorError::None)?
+                    .iter()
+                    .map(|f| lex::repr(*f))
+                    .collect();
+
+                nav.remove_rule(s)?;
+            }
+            Some("!?soe") => {
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms
+                        .iter()
+                        .filter(|a| re.is_match(a))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    atoms.iter().cloned().collect::<Vec<_>>()
+                };
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                nav.add_rule(shows.clone()).unwrap();
+                let cc = nav.cautious_consequences_projecting(route.iter());
+                nav.remove_rule(shows).unwrap();
+
+                let ys = cc
+                    .map(|cc| {
+                        let cc_ = cc.iter().map(|s| s.to_string()).collect::<Vec<_>>();
+                        xs.iter()
+                            .filter(move |x| !cc_.contains(x))
+                            .cloned()
+                            .collect::<Vec<_>>()
+                    })
+                    .unwrap();
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| ys.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                nav.add_rule(shows.clone()).unwrap();
+                nav.add_arg("--project=show")?;
+
+                *facets = nav.sieve_quiet(&ys).unwrap(); 
+
+                nav.remove_rule(shows).unwrap();
+            }
+            Some(IS_FACET_R) => {
+                let mut fs = vec![];
+                let mut k = 0;
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms.iter().filter(|a| re.is_match(a)).collect::<Vec<_>>()
+                } else {
+                    atoms.iter().collect::<Vec<_>>()
+                };
+                let (n, mut m) = (atoms.len() as u64, 0);
+                let pb = ProgressBar::new(n);
+                let style = "{spinner:.green} [{elapsed_precise}] [{wide_bar}] ({eta})";
+                pb.set_style(ProgressStyle::with_template(style).unwrap().with_key(
+                    "eta",
+                    |state: &ProgressState, w: &mut dyn Write| {
+                        write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap()
+                    },
+                ));
+
+                let lp = nav.program();
+                let clp = is_facet::copy_program(lp.clone());
+                nav.add_rule(clp.clone())?;
+
+                for x in xs {
+                    if is_facet::is_facet_r(nav, x.to_string()) {
+                        fs.push(x.to_owned());
+                        k += 2;
                     }
+                    m += 1;
+                    pb.set_position(m);
+                    thread::sleep(Duration::from_millis(12));
                 }
-                println!("\n{k}")
+                pb.finish_with_message("computed facets");
+                println!("\n{k}");
+                *facets = fs;
+
+                nav.remove_rule(clp)?;
             }
             Some(IS_FACET) => {
+                let mut fs = vec![];
                 let mut k = 0;
-                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                    for a in atoms.iter().filter(|a| re.is_match(a)) {
-                        match is_facet::is_facet(nav, a.to_string()) {
-                            is_facet::State::True(a) => {
-                                println!("{}", T.replace("[T]", &a))
-                            }
-                            is_facet::State::False(a) => {
-                                println!("{}", F.replace("[F]", &a))
-                            }
-                            _ => {
-                                k += 2;
-                                println!("{}", U.replace("[U]", &a))
-                            }
-                        }
-                    }
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms.iter().filter(|a| re.is_match(a)).collect::<Vec<_>>()
                 } else {
-                    for a in atoms.iter() {
-                        match is_facet::is_facet(nav, a.to_string()) {
-                            is_facet::State::True(a) => {
-                                println!("{}", T.replace("[T]", &a))
-                            }
-                            is_facet::State::False(a) => {
-                                println!("{}", F.replace("[F]", &a))
-                            }
-                            _ => {
-                                k += 2;
-                                println!("{}", U.replace("[U]", &a))
-                            }
-                        }
+                    atoms.iter().collect::<Vec<_>>()
+                };
+                let (n, mut m) = (atoms.len() as u64, 0);
+                let pb = ProgressBar::new(n);
+                let style = "{spinner:.green} [{elapsed_precise}] [{wide_bar}] ({eta})";
+                pb.set_style(ProgressStyle::with_template(style).unwrap().with_key(
+                    "eta",
+                    |state: &ProgressState, w: &mut dyn Write| {
+                        write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap()
+                    },
+                ));
+
+                for x in xs {
+                    if is_facet::is_facet(nav, x.to_string()) {
+                        fs.push(x.to_owned());
+                        k += 2;
                     }
+                    m += 1;
+                    pb.set_position(m);
+                    thread::sleep(Duration::from_millis(12));
                 }
-                println!("\n{k}")
+                pb.finish_with_message("computed facets");
+                println!("\n{k}");
+                *facets = fs;
             }
             Some(ENUMERATE_SOLUTIONS) => {
                 let n = nav.enumerate_solutions(
@@ -173,6 +305,71 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                         route.pop();
                     }
                 }
+            }
+            Some(FACET_COUNTS_PROJECTING) => {
+                let ovr_count = match self {
+                    Self::MaxWeightedFacetCounting(Some(c)) => *c,
+                    Self::MinWeightedFacetCounting(Some(c)) => *c,
+                    _ => 2 * facets.len(),
+                } as f32;
+                let mut weight = Weight::FacetCounting;
+
+                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    atoms
+                        .iter()
+                        .filter(|a| re.is_match(a))
+                        .cloned()
+                        .collect::<Vec<_>>()
+                } else {
+                    atoms.iter().cloned().collect::<Vec<_>>()
+                };
+
+                let mut or = ":-".to_owned();
+                xs.iter().for_each(|a| {
+                    or = format!("{or} not {a},");
+                });
+                or = format!("{}.", &or[..or.len() - 1]);
+
+                let shows = nav
+                    .symbols()
+                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
+                    .map(|(s, n)| format!("#show {s}/{n}."))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+
+                let s = format!("{shows}\n{or}");
+
+                nav.add_rule(s.clone())?;
+
+                if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    for f in facets.iter().filter(|f| re.is_match(f)) {
+                        route.push(f.to_owned());
+                        count_projecting(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} {f}", c, 1.0 - (c as f32 / ovr_count)))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                        route.push(format!("~{f}"));
+                        count_projecting(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} ~{f}", c, 1.0 - (c as f32 / ovr_count)))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                    }
+                } else {
+                    for f in facets.iter() {
+                        route.push(f.to_owned());
+                        count_projecting(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} {f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                        route.push(format!("~{f}"));
+                        count_projecting(&mut weight, nav, route.iter())
+                            .map(|c| println!("{:.4} {:?} ~{f}", 1.0 - (c as f32 / ovr_count), c))
+                            .ok_or(NavigatorError::None)?;
+                        route.pop();
+                    }
+                }
+
+                nav.remove_rule(s)?;
             }
             Some(ANSWER_SET_COUNT) => {
                 let n = nav.enumerate_solutions_quietly(
@@ -390,7 +587,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -411,7 +607,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -438,7 +633,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -459,7 +653,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -486,7 +679,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -507,7 +699,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -534,7 +725,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -555,7 +745,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -582,7 +771,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,
@@ -603,7 +791,6 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                         self.command(
                                             cmd.trim().to_owned(),
                                             nav,
-                                            _nav,
                                             atoms,
                                             facets,
                                             route,

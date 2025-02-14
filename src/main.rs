@@ -51,8 +51,6 @@ fn main() -> Result<()> {
         args.remove(i);
     }
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
-    let clp = is_facet::copy_program(lp.clone());
-    let mut _nav = Navigator::new(format!("{lp}\n{clp}"), args.clone())?;
 
     let re = Regex::new(r#config::FILTER_KEYWORD).unwrap();
     let filter_re = match lp.lines().last() {
@@ -70,24 +68,25 @@ fn main() -> Result<()> {
 
     println!("{} v{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"),);
 
-    let mut nav = Navigator::new(lp, args)?;
+    let mut nav = Navigator::new(lp.clone(), args.clone())?;
     let mut mode = Mode::GoalOriented(None::<usize>);
     let mut atoms = nav
         .atoms()
         .filter(|a| filter_re.is_match(a))
         .collect::<Vec<String>>();
     let mut route = Vec::new();
-    let mut ctx = Vec::new();
+    let mut cnf = Vec::new();
+
     let mut facets = if facets_at_startup {
         match learned_that_at_startup {
             false => nav
                 .facet_inducing_atoms(route.iter())
                 .ok_or(NavigatorError::None)?
-                .iter()
-                .map(|f| lex::repr(*f))
+                .into_iter()
+                .map(lex::repr)
                 .collect::<Vec<_>>(),
             _ => nav
-                .learned_that(&atoms, &route)
+                .learned_that(&atoms, &route, None)
                 .ok_or(NavigatorError::None)?,
         }
     } else {
@@ -105,11 +104,10 @@ fn main() -> Result<()> {
                 mode.command(
                     line,
                     &mut nav,
-                    &mut _nav,
                     &mut atoms,
                     &mut facets,
                     &mut route,
-                    &mut ctx,
+                    &mut cnf,
                 )?;
             }
             Err(ReadlineError::Interrupted) => {}
@@ -206,7 +204,7 @@ fn main() -> Result<()> {
                 .map(|f| lex::repr(*f))
                 .collect::<Vec<_>>(),
             _ => nav
-                .learned_that(&atoms, &route)
+                .learned_that(&atoms, &route, None)
                 .ok_or(NavigatorError::None)?,
         }
     } else {
@@ -218,7 +216,6 @@ fn main() -> Result<()> {
         mode.command(
             line.to_owned(),
             &mut nav,
-            &mut _nav,
             &mut atoms,
             &mut facets,
             &mut route,

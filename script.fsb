@@ -1,9 +1,0 @@
-:? occurs\(action\(\("pick-up",constant\("f"\)\)\),6\)
-%:filter_atoms 
-%:filter_atoms "pick-up"
-:filter_atoms action\(\("pick-up",constant\("d"\)
-:? action\(\("pick-up",constant\("d"\)
-:? 
-+ occurs(action(("put-down",constant("f"))),4)
-:?
-:q
