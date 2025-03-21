@@ -13,6 +13,7 @@ mod interpreter;
 mod is_facet;
 mod modes;
 mod significance;
+mod wfc;
 #[cfg(feature = "interpreter")]
 use crate::config::PROMPT;
 use crate::interpreter::Evaluate;
