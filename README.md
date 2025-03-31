@@ -7,6 +7,12 @@ Implementation of the **f**aceted **a**nswer **s**et **b**rowser, introduced in 
 fasb is a REPL system implemented on top of the [clingo](https://github.com/potassco/clingo) solver. 
 It enables answer set navigation alongside quantitative reasoning.
 
+## web tool
+A prototypical web application of fasb can be found
+[here](https://drwadu.github.io/web-fasb.github.io/). Its implementation is
+very basic and not considered stable by any means. The compiled command line
+tool is more efficient & provides more functionality.
+
 ## fundamental concepts 
 **weight of facet**
 
