@@ -49,8 +49,10 @@ pub(crate) fn manual() {
     println!("next step in mode                                                                             ->  {PROPOSE_STEP}");
     println!("perform next step in mode                                                                     ->  {TAKE_STEP}");
     println!("compute facets among atoms that match targets=[regex]                                         ->  {COMPUTE_FACETS_SU} targets");
-    println!("facet count                                                                                   ->  {FACET_COUNT}");
-    println!("facet counts under each facet                                                                 ->  {FACET_COUNTS}");
+    println!("facet count of facet                                                                          ->  {FACET_COUNT} facet");
+    println!("facet counts under each facet filtered from current facets by regex                           ->  {FACET_COUNTS} regex");
+    println!("facet count w.r.t. to provided weights in given filename                                      ->  {WEIGHTED_FACET_COUNT} filename facet");
+    println!("facet counts under each facet w.r.t. to provided regex and weights in given filename          ->  {WEIGHTED_FACET_COUNTS} filename regex");
     println!("facet counts under each facet in targets_1=[regex] using projection on targets_2=[regex]      ->  {FACET_COUNTS_PROJECTING} targets_2 targets_1");
     println!("significance of facets=[regex] for some literal=[a or ~a]                                     ->  {SIGNIFICANCE} literal facets");
     println!("significance of facets=[regex] for some literal=[a or ~a] using projection on targets=[regex] ->  {SIGNIFICANCE_PROJECTING} literal targets facets ");
