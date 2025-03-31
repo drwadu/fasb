@@ -4,15 +4,15 @@ use savan::nav::{facets::Facets, Navigator};
 pub struct WeightedFacet {
     facet: String,
     inclusive: bool,
-    weight: isize,
+    weight: f32,
 }
 
 pub fn weighted_facet_count(
     nav: &mut Navigator,
     route: Vec<String>,
     weighted_fs: Vec<WeightedFacet>,
-) -> Option<isize> {
-    let mut score = 0;
+) -> Option<f32> {
+    let mut score = 0.0;
 
     let bc = nav
         .brave_consequences(route.clone().iter())
@@ -41,7 +41,7 @@ pub fn weighted_facet_count(
 
     for x in cc {
         if !bc.contains(&x) {
-            score += 1
+            score += 1.0
         }
     }
 
@@ -55,7 +55,7 @@ pub fn parse_weighted_facets_from_file(filename: &str) -> Option<Vec<WeightedFac
         let mut xs = l.split_whitespace();
         let facet = xs.next().map(|s| s.to_string())?;
         let inclusive = xs.next().map(|s| s != "0")?;
-        let weight = xs.next().and_then(|s| s.parse::<isize>().ok())?;
+        let weight = xs.next().and_then(|s| s.parse::<f32>().ok())?;
 
         wfcs.push(WeightedFacet {
             facet,
