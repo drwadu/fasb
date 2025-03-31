@@ -2,6 +2,8 @@ use crate::config::*;
 use crate::is_facet;
 use crate::modes::{perform_next_step, propose_next_step, Mode};
 use crate::significance::Significance;
+use crate::wfc::parse_weighted_facets_from_file;
+use crate::wfc::weighted_facet_count;
 use indicatif::{ProgressBar, ProgressState, ProgressStyle};
 use regex::Regex;
 use savan::lex;
@@ -174,7 +176,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 nav.add_rule(shows.clone()).unwrap();
                 nav.add_arg("--project=show")?;
 
-                *facets = nav.sieve_quiet(&ys).unwrap(); 
+                *facets = nav.sieve_quiet(&ys).unwrap();
 
                 nav.remove_rule(shows).unwrap();
             }
@@ -245,6 +247,57 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 pb.finish_with_message("computed facets");
                 println!("\n{k}");
                 *facets = fs;
+            }
+            Some(WEIGHTED_FACET_COUNT) => {
+                match split_expr
+                    .next()
+                    .and_then(|filename| parse_weighted_facets_from_file(filename))
+                    .and_then(|wfcs| weighted_facet_count(nav, route.to_vec(), wfcs))
+                {
+                    Some(score) => println!("{:?}", score),
+                    _ => println!("NA"),
+                }
+            }
+            Some(WEIGHTED_FACET_COUNTS) => {
+                match split_expr
+                    .next()
+                    .and_then(|filename| parse_weighted_facets_from_file(filename))
+                {
+                    Some(wfcs) => {
+                        if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                            for f in facets.iter().filter(|f| re.is_match(f)) {
+                                route.push(f.to_owned());
+                                match weighted_facet_count(nav, route.to_vec(), wfcs.clone()) {
+                                    Some(score) => println!("{:?} {f}", score),
+                                    _ => println!("NA"),
+                                }
+                                route.pop();
+                                route.push(format!("~{f}"));
+                                match weighted_facet_count(nav, route.to_vec(), wfcs.clone()) {
+                                    Some(score) => println!("{:?} ~{f}", score),
+                                    _ => println!("NA"),
+                                }
+                                route.pop();
+                            }
+                        } else {
+                            for f in facets.iter() {
+                                route.push(f.to_owned());
+                                match weighted_facet_count(nav, route.to_vec(), wfcs.clone()) {
+                                    Some(score) => println!("{:?} {f}", score),
+                                    _ => println!("NA"),
+                                }
+                                route.pop();
+                                route.push(format!("~{f}"));
+                                match weighted_facet_count(nav, route.to_vec(), wfcs.clone()) {
+                                    Some(score) => println!("{:?} ~{f}", score),
+                                    _ => println!("NA"),
+                                }
+                                route.pop();
+                            }
+                        }
+                    }
+                    _ => println!("NA"),
+                }
             }
             Some(ENUMERATE_SOLUTIONS) => {
                 let n = nav.enumerate_solutions(
