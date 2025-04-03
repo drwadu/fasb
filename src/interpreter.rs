@@ -218,35 +218,9 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 nav.remove_rule(clp)?;
             }
             Some(IS_FACET) => {
-                let mut fs = vec![];
-                let mut k = 0;
-                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                    atoms.iter().filter(|a| re.is_match(a)).collect::<Vec<_>>()
-                } else {
-                    atoms.iter().collect::<Vec<_>>()
-                };
-                let (n, mut m) = (atoms.len() as u64, 0);
-                let pb = ProgressBar::new(n);
-                let style = "{spinner:.green} [{elapsed_precise}] [{wide_bar}] ({eta})";
-                pb.set_style(ProgressStyle::with_template(style).unwrap().with_key(
-                    "eta",
-                    |state: &ProgressState, w: &mut dyn Write| {
-                        write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap()
-                    },
-                ));
-
-                for x in xs {
-                    if is_facet::is_facet(nav, x.to_string()) {
-                        fs.push(x.to_owned());
-                        k += 2;
-                    }
-                    m += 1;
-                    pb.set_position(m);
-                    thread::sleep(Duration::from_millis(12));
+                if let Some(x) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    println!("{:?}", is_facet::is_facet(nav, x.to_string()))
                 }
-                pb.finish_with_message("computed facets");
-                println!("\n{k}");
-                *facets = fs;
             }
             Some(WEIGHTED_FACET_COUNT) => {
                 match split_expr
