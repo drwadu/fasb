@@ -1,9 +1,10 @@
 pub const PROMPT: &'static str = ":: ";
 pub const ACTIVATE_FACETS: &'static str = "+";
+pub const ACTIVATE_FACETS_LAZY: &'static str = ":+";
 pub const ACTIVATE_FACETS_LT: &'static str = "+'";
 pub const SHOW_FACETS: &'static str = "?";
-pub const COMPUTE_FACETS_SU: &'static str = "!?";
-pub const COMPUTE_FACETS: &'static str = "'!?";
+pub const COMPUTE_FACETS_SU: &'static str = "'!?";
+pub const COMPUTE_FACETS: &'static str = "!?";
 pub const FACET_COUNT: &'static str = "#?";
 pub const FACET_COUNTS: &'static str = "#??";
 pub const FACET_COUNTS_PROJECTING: &'static str = "!#??";
@@ -30,6 +31,7 @@ pub const SIGNIFICANCE: &'static str = "%";
 pub const SIGNIFICANCE_PROJECTING: &'static str = "!%";
 pub const IS_FACET: &'static str = ":?";
 pub const IS_FACET_R: &'static str = ":?r";
+pub const ENTAILMENT: &'static str = "|=";
 pub const QUIT: &'static str = ":q";
 
 pub const FILTER_KEYWORD: &'static str = "%filter ";
@@ -48,7 +50,7 @@ pub(crate) fn manual() {
     println!("select navigation mode=[{{{{min,max}}#{{f,a,s}}, go}}]                                              ->  {CHANGE_MODE} mode");
     println!("next step in mode                                                                             ->  {PROPOSE_STEP}");
     println!("perform next step in mode                                                                     ->  {TAKE_STEP}");
-    println!("compute facets among atoms that match targets=[regex]                                         ->  {COMPUTE_FACETS_SU} targets");
+    println!("compute facets among atoms that match targets=[regex]                                         ->  {COMPUTE_FACETS} targets");
     println!("facet count of facet                                                                          ->  {FACET_COUNT} facet");
     println!("facet counts under each facet filtered from current facets by regex                           ->  {FACET_COUNTS} regex");
     println!("facet count w.r.t. to provided weights in given filename                                      ->  {WEIGHTED_FACET_COUNT} filename facet");

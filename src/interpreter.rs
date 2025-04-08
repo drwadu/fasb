@@ -42,7 +42,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
         route: &mut Vec<String>,
         ctx: &mut Vec<String>,
     ) -> Result<()> {
-        let mut split_expr = expr.as_str().split_whitespace();
+        let e = expr.clone();
+        let mut split_expr = e.as_str().split_whitespace();
 
         match split_expr.next() {
             Some(ACTIVATE_FACETS) => {
@@ -64,42 +65,111 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .learned_that(facets, route, None)
                     .ok_or(NavigatorError::None)?;
             }
+            Some(ACTIVATE_FACETS_LAZY) => {
+                split_expr.for_each(|f| {
+                    route.push(f.to_owned());
+                });
+            }
             Some(COMPUTE_FACETS) => {
-                let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                    atoms
+                *facets = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                    nav.facet_inducing_atoms(route.iter())
+                        .ok_or(NavigatorError::None)?
                         .iter()
-                        .filter(|a| re.is_match(a))
-                        .cloned()
+                        .map(|f| lex::repr(*f))
+                        .filter(|a| re.is_match(&a))
                         .collect::<Vec<_>>()
                 } else {
-                    atoms.iter().cloned().collect::<Vec<_>>()
+                    nav.facet_inducing_atoms(route.iter())
+                        .ok_or(NavigatorError::None)?
+                        .iter()
+                        .map(|f| lex::repr(*f))
+                        .collect()
                 };
-
-                let mut or = ":-".to_owned();
-                xs.iter().for_each(|a| {
-                    or = format!("{or} not {a},");
-                });
-                or = format!("{}.", &or[..or.len() - 1]);
-
-                let shows = nav
-                    .symbols()
-                    .filter(|(s, _)| xs.iter().any(|a| a.starts_with(s)))
-                    .map(|(s, n)| format!("#show {s}/{n}."))
-                    .collect::<Vec<_>>()
-                    .join("\n");
-
-                let s = format!("{shows}\n{or}");
-
-                nav.add_rule(s.clone())?;
-
-                *facets = nav
-                    .facet_inducing_atoms(route.iter())
-                    .ok_or(NavigatorError::None)?
-                    .iter()
-                    .map(|f| lex::repr(*f))
-                    .collect();
-
-                nav.remove_rule(s)?;
+            }
+            Some(ENTAILMENT) => {
+                let fst = split_expr.next();
+                if let Some("%") = fst {
+                    if let Some(xs) = nav
+                        .cautious_consequences(route.iter())
+                        .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
+                    {
+                        if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                            atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
+                                if xs.contains(f) {
+                                    println!("{f}")
+                                }
+                            });
+                        } else {
+                            atoms.iter().for_each(|f| {
+                                if xs.contains(f) {
+                                    println!("{f}")
+                                }
+                            });
+                        }
+                    }
+                } else if let Some("%%") = fst {
+                    if let Some(xs) = nav
+                        .brave_consequences(route.iter())
+                        .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
+                    {
+                        if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                            atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
+                                if !xs.contains(f) {
+                                    println!("{f}")
+                                }
+                            });
+                        } else {
+                            atoms.iter().for_each(|f| {
+                                if !xs.contains(f) {
+                                    println!("{f}")
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    if let Some(bcs) = nav.brave_consequences(route.iter()) {
+                        if bcs.is_empty() {
+                            println!("no answer set")
+                        } else {
+                            // NOTE: is option
+                            //let initial_facets = nav.facet_inducing_atoms(std::iter::empty())
+                            //.ok_or(NavigatorError::None)?
+                            //.iter()
+                            //.map(|f| lex::repr(*f))
+                            //.collect();
+                            let bcs_str = bcs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>();
+                            if let Some(re) = fst.and_then(|s| Regex::new(r#s).ok()) {
+                                atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
+                                    if !bcs_str.contains(f) {
+                                        println!("\x1b[0;30;41m{}\x1b[0m", f)
+                                    } else {
+                                        if let Ok(1) = nav.enumerate_solutions_quietly(
+                                            Some(1),
+                                            route.iter().chain([format!("~{f}")].iter()),
+                                        ) {
+                                        } else {
+                                            println!("\x1b[0;30;42m{}\x1b[0m", f)
+                                        }
+                                    }
+                                });
+                            } else {
+                                atoms.iter().for_each(|f| {
+                                    if !bcs_str.contains(f) {
+                                        println!("\x1b[0;30;41m{}\x1b[0m", f)
+                                    } else {
+                                        if let Ok(1) = nav.enumerate_solutions_quietly(
+                                            Some(1),
+                                            route.iter().chain([format!("~{f}")].iter()),
+                                        ) {
+                                        } else {
+                                            println!("\x1b[0;30;42m{}\x1b[0m", f)
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }
             }
             Some(COMPUTE_FACETS_SU) => {
                 let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {

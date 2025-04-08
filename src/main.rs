@@ -67,7 +67,11 @@ fn main() -> Result<()> {
         _ => todo!(),
     };
 
-    println!("{} v{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"),);
+    println!(
+        "{} v{} (repl)",
+        env!("CARGO_PKG_NAME"),
+        env!("CARGO_PKG_VERSION")
+    );
 
     let mut nav = Navigator::new(lp.clone(), args.clone())?;
     let mut mode = Mode::GoalOriented(None::<usize>);
@@ -139,7 +143,7 @@ fn main() -> Result<()> {
     let lp = read_to_string(Path::new(&arg)).map_err(|_| NavigatorError::None)?;
 
     println!(
-        "{} v{}\n",
+        "{} v{} (interpreter)",
         env!("CARGO_PKG_NAME"),
         env!("CARGO_PKG_VERSION"),
     );
