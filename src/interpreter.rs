@@ -17,6 +17,7 @@ use savan::nav::{
 use std::fmt::Write;
 use std::thread;
 use std::time::Duration;
+use std::time::Instant;
 
 pub trait Evaluate<T>
 where
@@ -71,6 +72,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 });
             }
             Some(COMPUTE_FACETS) => {
+                let start = Instant::now();
                 *facets = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     nav.facet_inducing_atoms(route.iter())
                         .ok_or(NavigatorError::None)?
@@ -85,8 +87,10 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                         .map(|f| lex::repr(*f))
                         .collect()
                 };
+                println!("time elapsed: {:?}", start.elapsed())
             }
             Some(ENTAILMENT) => {
+                let start = Instant::now();
                 let fst = split_expr.next();
                 if let Some("%") = fst {
                     if let Some(xs) = nav
@@ -170,6 +174,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                         }
                     }
                 }
+                println!("ent time elapsed: {:?}", start.elapsed())
             }
             Some(COMPUTE_FACETS_SU) => {
                 let xs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
@@ -606,6 +611,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 }
             }
             Some(TAKE_STEP) => {
+                let start = Instant::now();
                 let fs = if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     facets
                         .iter()
@@ -653,6 +659,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     }
                     _ => println!("noop"),
                 }
+
+                println!("tak time elapsed: {:?}", start.elapsed())
             }
             Some(QUIT) => std::process::exit(0),
             Some("man") => crate::config::manual(),
@@ -992,10 +1000,12 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                     .collect();
             }
             Some(SIGNIFICANCE) => {
+                let start = Instant::now();
                 let y = split_expr.next().unwrap();
                 if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
                     nav.significance(&route, y.to_owned(), &facets, re)
                 }
+                println!("sig time elapsed: {:?}", start.elapsed())
             }
             Some(SIGNIFICANCE_PROJECTING) => {
                 let y = split_expr.next().unwrap();
