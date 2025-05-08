@@ -21,6 +21,7 @@ use crate::modes::Mode;
 
 #[cfg(not(feature = "interpreter"))]
 fn main() -> Result<()> {
+
     let mut input = std::env::args().skip(1);
     let arg = match input.next() {
         Some(s) => s,
@@ -99,6 +100,13 @@ fn main() -> Result<()> {
     };
 
     let mut rl = DefaultEditor::new().map_err(|_| NavigatorError::None)?;
+
+    for a in nav.atoms() {
+        if let Err(err) = rl.add_history_entry(a.as_str()) {
+            eprintln!("ReadlineError: {:?}", err);
+        }
+    }
+
     loop {
         match rl.readline(crate::config::PROMPT) {
             Ok(line) => {
