@@ -1,4 +1,4 @@
-pub const PROMPT: &'static str = ":: ";
+pub const PROMPT: &'static str = "\x1b[35m::\x1b[0m ";
 pub const ACTIVATE_FACETS: &'static str = "+";
 pub const ACTIVATE_FACETS_LAZY: &'static str = ":+";
 pub const ACTIVATE_FACETS_LT: &'static str = "+'";
