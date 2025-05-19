@@ -101,11 +101,11 @@ fn main() -> Result<()> {
 
     let mut rl = DefaultEditor::new().map_err(|_| NavigatorError::None)?;
 
-    //for a in nav.atoms() {
-    //    if let Err(err) = rl.add_history_entry(a.as_str()) {
-    //        eprintln!("ReadlineError: {:?}", err);
-    //    }
-    //}
+    for a in nav.atoms() {
+        if let Err(err) = rl.add_history_entry(a.as_str()) {
+            eprintln!("ReadlineError: {:?}", err);
+        }
+    }
 
     loop {
         match rl.readline(crate::config::PROMPT) {
