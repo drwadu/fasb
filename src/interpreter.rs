@@ -148,7 +148,10 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                 let bcs_str = bcs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>();
                                 if let Some(re) = fst.and_then(|s| Regex::new(r#s).ok()) {
                                     for f in atoms.iter() {
-                                        if re.is_match(f) && !bcs_str.contains(f) {
+                                        if !re.is_match(f) {
+                                            continue;
+                                        }
+                                        if !bcs_str.contains(f) {
                                             println!("\x1b[0;30;41m{}\x1b[0m", f)
                                         } else {
                                             if let Ok(1) = nav.enumerate_solutions_quietly(
@@ -173,7 +176,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                                 println!("\x1b[0;30;42m{}\x1b[0m", f)
                                             }
                                         }
-                                    };
+                                    }
                                 }
                             }
                         }
