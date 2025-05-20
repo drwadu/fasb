@@ -92,84 +92,92 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
             Some(ENTAILMENT) => {
                 let start = Instant::now();
                 let fst = split_expr.next();
-                if let Some("%") = fst {
-                    if let Some(xs) = nav
-                        .cautious_consequences(route.iter())
-                        .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
-                    {
-                        if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                            atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                if xs.contains(f) {
-                                    println!("{f}")
-                                }
-                            });
-                        } else {
-                            atoms.iter().for_each(|f| {
-                                if xs.contains(f) {
-                                    println!("{f}")
-                                }
-                            });
-                        }
-                    }
-                } else if let Some("%%") = fst {
-                    if let Some(xs) = nav
-                        .brave_consequences(route.iter())
-                        .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
-                    {
-                        if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                            atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                if !xs.contains(f) {
-                                    println!("{f}")
-                                }
-                            });
-                        } else {
-                            atoms.iter().for_each(|f| {
-                                if !xs.contains(f) {
-                                    println!("{f}")
-                                }
-                            });
-                        }
-                    }
-                } else {
-                    if let Some(bcs) = nav.brave_consequences(route.iter()) {
-                        if bcs.is_empty() {
-                            println!("no answer set")
-                        } else {
-                            // NOTE: is option
-                            //let initial_facets = nav.facet_inducing_atoms(std::iter::empty())
-                            //.ok_or(NavigatorError::None)?
-                            //.iter()
-                            //.map(|f| lex::repr(*f))
-                            //.collect();
-                            let bcs_str = bcs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>();
-                            if let Some(re) = fst.and_then(|s| Regex::new(r#s).ok()) {
-                                atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                    if !bcs_str.contains(f) {
-                                        println!("\x1b[0;30;41m{}\x1b[0m", f)
-                                    } else {
-                                        if let Ok(1) = nav.enumerate_solutions_quietly(
-                                            Some(1),
-                                            route.iter().chain([format!("~{f}")].iter()),
-                                        ) {
-                                        } else {
-                                            println!("\x1b[0;30;42m{}\x1b[0m", f)
-                                        }
+
+                match fst {
+                    Some("%") => {
+                        if let Some(xs) = nav
+                            .cautious_consequences(route.iter())
+                            .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
+                        {
+                            if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                                for f in atoms.iter() {
+                                    if re.is_match(f) && xs.contains(f) {
+                                        println!("{f}")
                                     }
-                                });
+                                }
                             } else {
-                                atoms.iter().for_each(|f| {
-                                    if !bcs_str.contains(f) {
-                                        println!("\x1b[0;30;41m{}\x1b[0m", f)
-                                    } else {
-                                        if let Ok(1) = nav.enumerate_solutions_quietly(
-                                            Some(1),
-                                            route.iter().chain([format!("~{f}")].iter()),
-                                        ) {
+                                for f in atoms.iter() {
+                                    if xs.contains(f) {
+                                        println!("{f}")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Some("%%") => {
+                        if let Some(xs) = nav
+                            .brave_consequences(route.iter())
+                            .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
+                        {
+                            if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
+                                for f in atoms.iter() {
+                                    if re.is_match(f) && !xs.contains(f) {
+                                        println!("{f}")
+                                    }
+                                }
+                            } else {
+                                for f in atoms.iter() {
+                                    if !xs.contains(f) {
+                                        println!("{f}")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Some(&_) | None => {
+                        if let Some(bcs) = nav.brave_consequences(route.iter()) {
+                            if bcs.is_empty() {
+                                println!("no answer set")
+                            } else {
+                                // NOTE: is option
+                                //let initial_facets = nav.facet_inducing_atoms(std::iter::empty())
+                                //.ok_or(NavigatorError::None)?
+                                //.iter()
+                                //.map(|f| lex::repr(*f))
+                                //.collect();
+                                let bcs_str = bcs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>();
+                                if let Some(re) = fst.and_then(|s| Regex::new(r#s).ok()) {
+                                    for f in atoms.iter() {
+                                        if !re.is_match(f) {
+                                            continue;
+                                        }
+                                        if !bcs_str.contains(f) {
+                                            println!("\x1b[0;30;41m{}\x1b[0m", f)
                                         } else {
-                                            println!("\x1b[0;30;42m{}\x1b[0m", f)
+                                            if let Ok(1) = nav.enumerate_solutions_quietly(
+                                                Some(1),
+                                                route.iter().chain([format!("~{f}")].iter()),
+                                            ) {
+                                            } else {
+                                                println!("\x1b[0;30;42m{}\x1b[0m", f)
+                                            }
                                         }
                                     }
-                                });
+                                } else {
+                                    for f in atoms.iter() {
+                                        if !bcs_str.contains(f) {
+                                            println!("\x1b[0;30;41m{}\x1b[0m", f)
+                                        } else {
+                                            if let Ok(1) = nav.enumerate_solutions_quietly(
+                                                Some(1),
+                                                route.iter().chain([format!("~{f}")].iter()),
+                                            ) {
+                                            } else {
+                                                println!("\x1b[0;30;42m{}\x1b[0m", f)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -1054,7 +1062,13 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                 )?;
                 println!("found {:?}", n);
             }
-            _ => println!("noop [unknown command]"),
+            Some(cmd) => {
+                if cmd.starts_with("//") {
+                    return Ok(());
+                }
+                println!("noop [unknown command]");
+            }
+            _ => eprintln!("unknown error"),
         }
 
         Ok(())
