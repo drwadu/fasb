@@ -100,17 +100,17 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
                         {
                             if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                                atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                    if xs.contains(f) {
+                                for f in atoms.iter() {
+                                    if re.is_match(f) && xs.contains(f) {
                                         println!("{f}")
                                     }
-                                });
+                                }
                             } else {
-                                atoms.iter().for_each(|f| {
+                                for f in atoms.iter() {
                                     if xs.contains(f) {
                                         println!("{f}")
                                     }
-                                });
+                                }
                             }
                         }
                     }
@@ -120,17 +120,17 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                             .map(|fs| fs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>())
                         {
                             if let Some(re) = split_expr.next().and_then(|s| Regex::new(r#s).ok()) {
-                                atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                    if !xs.contains(f) {
+                                for f in atoms.iter() {
+                                    if re.is_match(f) && !xs.contains(f) {
                                         println!("{f}")
                                     }
-                                });
+                                }
                             } else {
-                                atoms.iter().for_each(|f| {
+                                for f in atoms.iter() {
                                     if !xs.contains(f) {
                                         println!("{f}")
                                     }
-                                });
+                                }
                             }
                         }
                     }
@@ -147,8 +147,8 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                 //.collect();
                                 let bcs_str = bcs.iter().map(|f| lex::repr(*f)).collect::<Vec<_>>();
                                 if let Some(re) = fst.and_then(|s| Regex::new(r#s).ok()) {
-                                    atoms.iter().filter(|f| re.is_match(f)).for_each(|f| {
-                                        if !bcs_str.contains(f) {
+                                    for f in atoms.iter() {
+                                        if re.is_match(f) && !bcs_str.contains(f) {
                                             println!("\x1b[0;30;41m{}\x1b[0m", f)
                                         } else {
                                             if let Ok(1) = nav.enumerate_solutions_quietly(
@@ -159,9 +159,9 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                                 println!("\x1b[0;30;42m{}\x1b[0m", f)
                                             }
                                         }
-                                    });
+                                    }
                                 } else {
-                                    atoms.iter().for_each(|f| {
+                                    for f in atoms.iter() {
                                         if !bcs_str.contains(f) {
                                             println!("\x1b[0;30;41m{}\x1b[0m", f)
                                         } else {
@@ -173,7 +173,7 @@ impl Evaluate<Option<usize>> for Mode<Option<usize>> {
                                                 println!("\x1b[0;30;42m{}\x1b[0m", f)
                                             }
                                         }
-                                    });
+                                    };
                                 }
                             }
                         }
